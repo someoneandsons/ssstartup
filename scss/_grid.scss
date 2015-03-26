@@ -38,11 +38,13 @@
 }
 
 @mixin cols($col-name, $span-name, $cols) {
-	@for $i from 1 through $cols {
-		.#{$col-name} {
-			&.#{$span-name}-#{$i}-#{$cols} {
-				width: ($i / $cols) * 100%;
-				*width: ($i / $cols) * 100% - 0.031%;
+	@each $col in $cols {
+		@for $i from 1 through $col {
+			.#{$col-name} {
+				&.#{$span-name}-#{$i}-#{$col} {
+					width: ($i / $col) * 100%;
+					*width: ($i / $col) * 100% - 0.031%;
+				}
 			}
 		}
 	}
