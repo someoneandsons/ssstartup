@@ -1,0 +1,54 @@
+//Stolen from Pure.css
+
+@mixin grid($row-name, $col-name, $cols) {
+	.#{$row-name} {
+	    letter-spacing: -0.31em;
+	    *letter-spacing: normal;
+	    *word-spacing: -0.43em;
+	    text-rendering: optimizespeed;
+	    display: -webkit-flex;
+	    -webkit-flex-flow: row wrap;
+	    display: -ms-flexbox;
+	    -ms-flex-flow: row wrap;
+	    -ms-align-content: flex-start;
+		-webkit-align-content: flex-start;
+		align-content: flex-start;
+	}
+	
+	.#{$col-name} {
+	    display: inline-block;
+	    *display: inline; /* IE < 8: fake inline-block */
+	    zoom: 1;
+	    letter-spacing: normal;
+	    word-spacing: normal;
+	    vertical-align: top;
+	    text-rendering: auto;
+	}
+	
+	@include cols($col-name, $cols);
+	
+	@media screen and (min-width: 35.5em) {
+	    @include cols(#{$col-name}-s, $cols);
+	}
+	
+	@media screen and (min-width: 48em) {
+	    @include cols(#{$col-name}-m, $cols);
+	}
+	
+	@media screen and (min-width: 64em) {
+	    @include cols(#{$col-name}-l, $cols);
+	}
+	
+	@media screen and (min-width: 80em) {
+	    @include cols(#{$col-name}-x, $cols);
+	}
+}
+
+@mixin cols($name, $cols) {
+	@for $i from 1 through $cols {
+		.#{$name}-#{$i} {
+			width: ($i / $cols) * 100%;
+			//*width: (($i / $cols) - 0.031) * 100%
+		}
+	}
+}
