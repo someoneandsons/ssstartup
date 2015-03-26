@@ -1,6 +1,6 @@
 //Stolen from Pure.css, but better
 
-@mixin grid($row-name, $col-name, $cols, $breakpoints) {
+@mixin grid($row-name, $col-name, $span-name, $cols, $breakpoints) {
 	.#{$row-name} {
 	    letter-spacing: -0.31em;
 	    *letter-spacing: normal;
@@ -25,7 +25,7 @@
 	    text-rendering: auto;
 	}
 	
-	@include cols($col-name, $cols);
+	@include cols($span-name, $cols);
 	
 	@each $name, $breakpoint in $breakpoints {
 		$keys: map-keys($breakpoint);
