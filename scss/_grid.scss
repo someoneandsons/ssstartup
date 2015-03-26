@@ -25,23 +25,25 @@
 	    text-rendering: auto;
 	}
 	
-	@include cols($span-name, $cols);
+	@include cols($col-name, $span-name, $cols);
 	
 	@each $name, $breakpoint in $breakpoints {
 		$keys: map-keys($breakpoint);
 		$key: nth($keys, 1);
 		$width: map-get($breakpoint, $key);
 		@media screen and (#{$key}-width: $width) {
-		    @include cols(#{$col-name}-#{$name}, $cols);
+		    @include cols($col-name, #{$span-name}-#{$name}, $cols);
 		}
 	}
 }
 
-@mixin cols($name, $cols) {
+@mixin cols($col-name, $span-name, $cols) {
 	@for $i from 1 through $cols {
-		.#{$name}-#{$i}-#{$cols} {
-			width: ($i / $cols) * 100%;
-			*width: ($i / $cols) * 100% - 0.031%;
+		#{$col-name} {
+			&.#{$span-name}-#{$i}-#{$cols} {
+				width: ($i / $cols) * 100%;
+				*width: ($i / $cols) * 100% - 0.031%;
+			}
 		}
 	}
 }
