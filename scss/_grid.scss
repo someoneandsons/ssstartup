@@ -39,7 +39,7 @@
 
 @mixin cols($col-name, $span-name, $cols) {
 	@for $i from 1 through $cols {
-		#{$col-name} {
+		.#{$col-name} {
 			&.#{$span-name}-#{$i}-#{$cols} {
 				width: ($i / $cols) * 100%;
 				*width: ($i / $cols) * 100% - 0.031%;
