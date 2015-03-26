@@ -1,6 +1,6 @@
 //Stolen from Pure.css, but better
 
-@mixin grid($row-name, $col-name, $span-name, $cols, $breakpoints) {
+@mixin grid($row-name, $col-name, $span-name, $push-name, $cols, $breakpoints) {
 	.#{$row-name} {
 	    letter-spacing: -0.31em;
 	    *letter-spacing: normal;
@@ -23,27 +23,33 @@
 	    word-spacing: normal;
 	    vertical-align: top;
 	    text-rendering: auto;
+	    width: 100%;
 	}
 	
-	@include cols($col-name, $span-name, $cols);
+	@include cols($col-name, $span-name, $push-name, $cols);
 	
 	@each $name, $breakpoint in $breakpoints {
 		$keys: map-keys($breakpoint);
 		$key: nth($keys, 1);
 		$width: map-get($breakpoint, $key);
 		@media screen and (#{$key}-width: $width) {
-		    @include cols($col-name, #{$span-name}-#{$name}, $cols);
+		    @include cols($col-name, #{$span-name}-#{$name}, #{$push-name}-#{$name}, $cols);
 		}
 	}
 }
 
-@mixin cols($col-name, $span-name, $cols) {
+@mixin cols($col-name, $span-name, $push-name, $cols) {
 	@each $col in $cols {
 		@for $i from 1 through $col {
 			.#{$col-name} {
 				&.#{$span-name}-#{$i}-#{$col} {
 					width: ($i / $col) * 100%;
 					*width: ($i / $col) * 100% - 0.031%;
+				}
+				
+				&.#{$push-name}-#{$i}-#{$col} {
+					margin-left: ($i / $col) * 100%;
+					*margin-left: ($i / $col) * 100% - 0.031%;
 				}
 			}
 		}
