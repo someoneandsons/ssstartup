@@ -1,6 +1,6 @@
-//Stolen from Pure.css
+//Stolen from Pure.css, but better
 
-@mixin grid($row-name, $col-name, $cols) {
+@mixin grid($row-name, $col-name, $cols, $breakpoints) {
 	.#{$row-name} {
 	    letter-spacing: -0.31em;
 	    *letter-spacing: normal;
@@ -17,7 +17,7 @@
 	
 	.#{$col-name} {
 	    display: inline-block;
-	    *display: inline; /* IE < 8: fake inline-block */
+	    *display: inline;
 	    zoom: 1;
 	    letter-spacing: normal;
 	    word-spacing: normal;
@@ -27,28 +27,21 @@
 	
 	@include cols($col-name, $cols);
 	
-	@media screen and (min-width: 35.5em) {
-	    @include cols(#{$col-name}-s, $cols);
-	}
-	
-	@media screen and (min-width: 48em) {
-	    @include cols(#{$col-name}-m, $cols);
-	}
-	
-	@media screen and (min-width: 64em) {
-	    @include cols(#{$col-name}-l, $cols);
-	}
-	
-	@media screen and (min-width: 80em) {
-	    @include cols(#{$col-name}-x, $cols);
+	@each $name, $breakpoint in $breakpoints {
+		$keys: map-keys($breakpoint);
+		$key: nth($keys, 1);
+		$width: map-get($breakpoint, $key);
+		@media screen and (#{$key}-width: $width) {
+		    @include cols(#{$col-name}-#{$name}, $cols);
+		}
 	}
 }
 
 @mixin cols($name, $cols) {
 	@for $i from 1 through $cols {
-		.#{$name}-#{$i} {
+		.#{$name}-#{$i}-#{$cols} {
 			width: ($i / $cols) * 100%;
-			//*width: (($i / $cols) - 0.031) * 100%
+			*width: ($i / $cols) * 100% - 0.031%;
 		}
 	}
 }
