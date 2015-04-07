@@ -37,7 +37,7 @@
 	}
 }
 
-@mixin font($size: 15px, $height: 1.2, $margin: 18px) {
+@mixin font($size: 15px, $height: 1.2) {
 	@include rem(font-size, $size);
 	
 	@if unitless($height) {
@@ -45,9 +45,6 @@
 	} @else {
 		@include rem(line-height, $height);
 	}
-	
-	@include rem(margin-top, $margin / 2);
-	@include rem(margin-bottom, $margin / 2);
 }
 
 @mixin keyframes($name) {
