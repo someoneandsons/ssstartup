@@ -1,0 +1,101 @@
+@function parseInt($n) {
+	@return $n / ($n * 0 + 1);
+}
+
+@mixin rem($property, $values) {
+	$px : ();
+	$rem: ();
+	
+	@each $value in $values {
+	
+		@if $value == 0 or $value == auto or $value == !important {
+			$px : append($px, $value);
+			$rem: append($rem, $value);
+		}
+		
+		@else { 
+			$unit: unit($value);
+			$val: parseInt($value);
+			
+			@if $unit == "px" {
+				$px : append($px, $value);
+				$rem: append($rem, ($val / 10 + rem));
+			}
+			
+			@if $unit == "rem" {
+				$px : append($px, ($val * 10 + px));
+				$rem: append($rem, $value);
+			}
+		}
+	}
+	
+	@if $px == $rem {
+		#{$property}: $px;
+	} @else {
+		#{$property}: $px;
+		#{$property}: $rem;
+	}
+}
+
+@mixin font($size: 15px, $height: 1.2, $margin: 18px) {
+	@include rem(font-size, $size);
+	
+	@if unitless($height) {
+		line-height: $height;
+	} @else {
+		@include rem(line-height, $height);
+	}
+	
+	@include rem(padding-bottom, $padding);
+}
+
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+	@-ms-keyframes #{$name} {
+		@content;
+	}
+	@keyframes #{$name} {
+		@content;
+	} 
+}
+
+@mixin animation($styles...) {
+	-webkit-animation: $styles;
+	-moz-animation: $styles;
+	-o-animation: $styles;
+	animation: $styles;
+}
+
+@mixin placeholder {
+	&::-webkit-input-placeholder {
+		@content;
+	}
+	&:-moz-placeholder {
+		@content;
+	}
+	&::-moz-placeholder {
+		@content; 
+	}
+	&:-ms-input-placeholder {  
+		@content;
+	}
+}
+
+@mixin noprint {
+	@media only print {
+		& { display: none; }
+	}
+}
+
+@mixin print {
+	@media only print {
+		& {
+			@content;
+		}
+	}
+}
