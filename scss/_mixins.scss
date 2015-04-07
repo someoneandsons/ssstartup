@@ -46,7 +46,8 @@
 		@include rem(line-height, $height);
 	}
 	
-	@include rem(padding-bottom, $padding);
+	@include rem(margin-top, $margin / 2);
+	@include rem(margin-bottom, $margin / 2);
 }
 
 @mixin keyframes($name) {
