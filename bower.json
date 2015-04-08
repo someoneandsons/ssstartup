@@ -1,0 +1,20 @@
+{
+  "name": "S&S Startup",
+  "version": "0.1",
+  "homepage": "https://github.com/someoneandsons/startup",
+  "authors": [
+    "Mike Pierce <mike@someoneandsons.net>"
+  ],
+  "description": "A few things for starting up a project",
+  "keywords": [
+    "Sass"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
