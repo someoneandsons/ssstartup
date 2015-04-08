@@ -6,13 +6,9 @@
 	    *letter-spacing: normal;
 	    *word-spacing: -0.43em;
 	    text-rendering: optimizespeed;
-	    display: -webkit-flex;
-	    -webkit-flex-flow: row wrap;
-	    display: -ms-flexbox;
-	    -ms-flex-flow: row wrap;
-	    -ms-align-content: flex-start;
-		-webkit-align-content: flex-start;
-		align-content: flex-start;
+	    @include display-flex(flex);
+	    @include flex-flow(row wrap);
+	    @include align-content(flex-start);
 	}
 	
 	.#{$col-name} {
@@ -24,6 +20,18 @@
 	    vertical-align: top;
 	    text-rendering: auto;
 	    width: 100%;
+	    
+	    &.order-first {
+			@include order(0);
+		}
+		
+		&.order-second {
+			@include order(1);
+		}
+		
+		&.order-third {
+			@include order(2);
+		}
 	}
 	
 	@include cols($col-name, $span-name, $push-name, $cols);

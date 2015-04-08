@@ -1,11 +1,15 @@
 {
-  "name": "S&S Startup",
+  "name": "ssstartup",
   "version": "0.1",
   "homepage": "https://github.com/someoneandsons/startup",
   "authors": [
     "Mike Pierce <mike@someoneandsons.net>"
   ],
   "description": "A few things for starting up a project",
+  "main": [
+    "scss/_grid.scss",
+    "scss/_mixins.scss"
+  ],
   "keywords": [
     "Sass"
   ],
