@@ -21,15 +21,15 @@
 	    text-rendering: auto;
 	    width: 100%;
 	    
-	    &.first {
+	    &.#{$span-name}-first {
 			@include order(0);
 		}
 		
-		&.second {
+		&.#{$span-name}-second {
 			@include order(1);
 		}
 		
-		&.third {
+		&.#{$span-name}-third {
 			@include order(2);
 		}
 	}
@@ -37,27 +37,36 @@
 	@include cols($col-name, $span-name, $push-name, $cols);
 	
 	@each $name, $breakpoint in $breakpoints {
-		$keys: map-keys($breakpoint);
-		$key: nth($keys, 1);
-		$width: map-get($breakpoint, $key);
-		@media screen and (#{$key}-width: $width) {
-		    @include cols($col-name, #{$span-name}-#{$name}, #{$push-name}-#{$name}, $cols);
+		@include breakpoint($breakpoint) {
+			@include cols($col-name, #{$span-name}-#{$name}, #{$push-name}-#{$name}, $cols);
 		}
 	}
 }
 
 @mixin cols($col-name, $span-name, $push-name, $cols) {
-	@each $col in $cols {
-		@for $i from 1 through $col {
-			.#{$col-name} {
+	.#{$col-name} {
+		&.#{$span-name}-first {
+			@include order(0);
+		}
+		
+		&.#{$span-name}-second {
+			@include order(1);
+		}
+		
+		&.#{$span-name}-third {
+			@include order(2);
+		}
+		
+		@each $col in $cols {
+			@for $i from 1 through $col {
 				&.#{$span-name}-#{$i}-#{$col} {
 					width: ($i / $col) * 100%;
-					*width: ($i / $col) * 100% - 0.031%;
+					//*width: ($i / $col) * 100% - 0.031%;
 				}
 				
-				&.#{$push-name}-#{$i}-#{$col} {
-					margin-left: ($i / $col) * 100%;
-					*margin-left: ($i / $col) * 100% - 0.031%;
+				&.#{$push-name}-#{$i - 1}-#{$col} {
+					margin-left: (($i - 1) / $col) * 100%;
+					//*margin-left: (($i - 1) / $col) * 100% - 0.031%;
 				}
 			}
 		}

@@ -47,6 +47,15 @@
 	}
 }
 
+@mixin breakpoint($breakpoint) {
+	$keys: map-keys($breakpoint);
+	$key: nth($keys, 1);
+	$width: map-get($breakpoint, $key);
+	@media screen and (#{$key}-width: $width) {
+	    @content;
+	}
+}
+
 @mixin keyframes($name) {
 	@-webkit-keyframes #{$name} {
 		@content;
