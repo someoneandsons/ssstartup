@@ -1,0 +1,190 @@
+{
+	"globals": {
+		"favicon": {
+			"directory": "/favicon/",
+			"tile": "#17132f",
+			"theme": "#ffffff"
+		},
+		"colors": {
+			"primary": {
+				"p": "This is the primary color",
+				"text": "c-primary",
+				"background": "bg-primary"
+			},
+			"secondary": {
+				"p": "This is the secondary color",
+				"text": "c-secondary",
+				"background": "bg-secondary"
+			},
+			"tertiary": {
+				"p": "This is the tertiary color",
+				"text": "c-tertiary",
+				"background": "bg-tertiary"
+			},
+			"quarternary": {
+				"p": "This is the quarternary color",
+				"text": "c-quarternary",
+				"background": "bg-quarternary"
+			},
+			"text": {
+				"p": "This is the text color",
+				"text": "c-text",
+				"background": "bg-text"
+			},
+			"black": {
+				"p": "This is black",
+				"text": "c-black",
+				"background": "bg-black"
+			},
+			"white": {
+				"p": "This is white",
+				"text": "c-white",
+				"background": "bg-white",
+				"swatch": "black"
+			}
+		},
+		"fonts": {
+			"primary": {
+				"p": "This is the primary font",
+				"em": "This is the primary font, but italic",
+				"strong": "This is the primary font, but bold",
+				"class": "f-primary"
+
+			},
+			"secondary": {
+				"p": "This is the secondary font",
+				"em": "This is the secondary font, but italic",
+				"strong": "This is the secondary font, but bold",
+				"class": "f-secondary"
+			},
+			"monospace": {
+				"p": "This is the monospace font",
+				"em": "This is the monospace font, but italic",
+				"strong": "This is the monospace font, but bold",
+				"class": "f-monospace"
+			}
+		},
+		"animations": {
+			"primary": {
+				"p": "Hover to view the primary animation",
+				"class": "a-primary"
+			},
+			"secondary": {
+				"p": "Hover to view the secondary animation",
+				"class": "a-secondary"
+			}
+		},
+		"visibilities": {
+			"small": {
+				"over": {
+					"hide": {
+						"p": "Hidden when larger than small screens",
+						"class": "s-o-hidden"
+					},
+					"show": {
+						"p": "Shown when larger than small screens",
+						"class": "s-o-show"
+					}
+				},
+				"under": {
+					"hide": {
+						"p": "Hidden on small screens and below",
+						"class": "s-u-hidden"
+					},
+					"show": {
+						"p": "Shown on small screens and below",
+						"class": "s-u-show"
+					}
+				}
+			},
+			"medium": {
+				"over": {
+					"hide": {
+						"p": "Hidden when larger than medium screens",
+						"class": "m-o-hidden"
+					},
+					"show": {
+						"p": "Shown when larger than medium screens",
+						"class": "m-o-show"
+					}
+				},
+				"under": {
+					"hide": {
+						"p": "Hidden on medium screens and below",
+						"class": "m-u-hidden"
+					},
+					"show": {
+						"p": "Shown on medium screens and below",
+						"class": "m-u-show"
+					}
+				}
+			},
+			"large": {
+				"over": {
+					"hide": {
+						"p": "Hidden when larger than large screens",
+						"class": "l-o-hidden"
+					},
+					"show": {
+						"p": "Shown when larger than large screens",
+						"class": "l-o-show"
+					}
+				},
+				"under": {
+					"hide": {
+						"p": "Hidden on large screens and below",
+						"class": "l-u-hidden"
+					},
+					"show": {
+						"p": "Shown on large screens and below",
+						"class": "l-u-show"
+					}
+				}
+			},
+			"extra_large": {
+				"over": {
+					"hide": {
+						"p": "Hidden when larger than extra large screens",
+						"class": "x-o-hidden"
+					},
+					"show": {
+						"p": "Shown when larger than extra large screens",
+						"class": "x-o-show"
+					}
+				},
+				"under": {
+					"hide": {
+						"p": "Hidden on extra large screens and below",
+						"class": "x-u-hidden"
+					},
+					"show": {
+						"p": "Shown on extra large screens and below",
+						"class": "x-u-show"
+					}
+				}
+			},
+			"gigantic": {
+				"over": {
+					"hide": {
+						"p": "Hidden when larger than gigantic screens",
+						"class": "g-o-hidden"
+					},
+					"show": {
+						"p": "Shown when larger than gigantic screens",
+						"class": "g-o-show"
+					}
+				},
+				"under": {
+					"hide": {
+						"p": "Hidden on gigantic screens and below",
+						"class": "g-u-hidden"
+					},
+					"show": {
+						"p": "Shown on gigantic screens and below",
+						"class": "g-u-show"
+					}
+				}
+			}
+		}
+	}
+}

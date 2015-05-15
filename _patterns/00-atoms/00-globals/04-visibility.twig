@@ -1,0 +1,6 @@
+{% for visibility in globals.visibilities %}
+	{% for threshold in visibility %}
+		{{ text.p(threshold.hide.p, {class: threshold.hide.class}) }}
+		{{ text.p(threshold.show.p, {style: 'display: none;', class: threshold.show.class}) }}
+	{% endfor %}
+{% endfor %}

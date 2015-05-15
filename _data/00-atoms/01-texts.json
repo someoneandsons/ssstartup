@@ -1,0 +1,91 @@
+{
+	"texts": {
+		"h1": "Heading level 1",
+		"h2": "Heading level 2",
+		"h3": "Heading level 3",
+		"h4": "Heading level 4",
+		"h5": "Heading level 5",
+		"h6": "Heading level 6",
+		"p": "Nunc placerat pharetra bibendum. Aliquam a dui sed quam luctus pharetra. Integer tincidunt nibh ac pellentesque lacinia. Maecenas euismod tortor at urna mollis, in semper lorem cursus. Nullam ultricies fringilla dui eu accumsan. Integer tempor sapien vitae ullamcorper mattis. Sed scelerisque id mauris in porta. Suspendisse at diam vitae neque sodales imperdiet ornare vitae nulla. Pellentesque gravida nibh quis turpis venenatis, eget sollicitudin dui ullamcorper.",
+		"a": {
+			"href": "#",
+			"contents": "This is a text link"
+		},
+		"em": "This text has added emphasis.",
+		"strong": "Strong is used to indicate strong importance.",
+		"b": {
+			"p": "The %s is stylistically different text from normal text, without any special importance.",
+			"contents": "b element"
+		},
+		"i": {
+			"p": "The %s is text that is set off from the normal text.",
+			"contents": "i element"
+		},
+		"u": {
+			"p": "The %s is text with an unarticulated, though explicitly rendered, non-textual annotation.",
+			"contents": "u element"
+		},
+		"del": {
+			"p": "This text is %s.",
+			"contents": "deleted"
+		},
+		"ins": {
+			"p": "This text is %s.",
+			"contents": "inserted"
+		},
+		"s": {
+			"p": "This text has a %s.",
+			"contents": "strikethrough"
+		},
+		"sup": {
+			"p": "Superscript: %s",
+			"contents": "®"
+		},
+		"sub": {
+			"p": "Subscript: H%sO",
+			"contents": "2"
+		},
+		"small": "This small text is small for fine print, etc.",
+		"abbr": {
+			"p": "This is an abbreviation: %s",
+			"title": "HyperText Markup Language",
+			"contents": "HTML"
+		},
+		"kbd": {
+			"p": "This is keyboard input: %s",
+			"contents": "Cmd"
+		},
+		"q": {
+			"cite": "https://developer.mozilla.org/en-US/docs/HTML/Element/q",
+			"contents": "This text is a short inline quotation."
+		},
+		"dfn": {
+			"p": "The %s indicates a definition.",
+			"contents": "dfn element"
+		},
+		"mark": {
+			"p": "The %s indicates a highlight.",
+			"contents": "mark element"
+		},
+		"code": "This is what inline code looks like.",
+		"samp": "This is sample output from a computer program",
+		"var": {
+			"p": "This is the %s element.",
+			"contents": "variable"
+		},
+		"pre": "P R E F O R M A T T E D T E X T\n!   # $ % & ' ( ) * + , - . /\n0 1 2 3 4 5 6 7 8 9 : ; < = > ?\n@ A B C D E F G H I J K L M N O\nP Q R S T U V W X Y Z [ \\ ] ^ _\n` a b c d e f g h i j k l m n o\np q r s t u v w x y z { | } ~",
+		"time": "The time is %s",		
+		"address": "Someone & Sons<br>Herrfurthplatz 8<br>12049 Berlin<br><a href=\"mailto:someone@someoneandsons.net\">Email</a><br><a href=\"tel:+493089563440\">Phone</a>",
+		"details": {
+			"summary": "Preview of the details",
+			"contents": "This text should be hidden until the details are opened"
+		},
+		"progress": {
+			"value": "38",
+			"max": "100",
+			"contents": "This is a progress bar"
+		},
+		"hr": "There should be a horizontal line below this text.",
+		"br" : "And this text should...%s...be split across two lines."
+	}
+}

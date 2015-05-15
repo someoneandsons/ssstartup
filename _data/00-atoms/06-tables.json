@@ -1,0 +1,14 @@
+{
+	"tables": {
+		"caption": "Table caption",
+		"thead": {
+			"th": "Header"
+		},
+		"tbody": {
+			"td": "Cell"
+		},
+		"tfoot": {
+			"th": "Footer"
+		}
+	}
+}

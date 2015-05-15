@@ -1,11 +1,12 @@
 # SSStartup
 
-## A startup for Someone & Sons projects.
+### A startup for Someone & Sons projects
 
-SSStartup is a base of pattern library utilising atomic design principles and built on top of [Pattern Lab](http://patternlab.io).
+SSStartup utilises atomic design principles to create templates that allows developers to use them directly in projects, but also acts as a stand-alone pattern library that is easily edited by designers and can be made accessible to clients.
 
 It provides:
 
+* Pre-configured project settings for [CodeKit](https://incident57.com/codekit/) that compiles things to the right place
 * A base of common atoms, molecules & organisms for [Pattern Lab](http://patternlab.io)
 * A logical structure that allows usage of patterns directly as templates in [Craft](http://buildwithcraft.com)
 * A base of common styles and logical structure based on [Sass](http://sass-lang.com) and [Compass](http://compass-style.org)

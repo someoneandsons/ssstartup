@@ -1,0 +1,25 @@
+{
+	"lists": {
+		"li": {
+			"1": "This is the first item in the list",
+			"2": "This is the second item in the list",
+			"3": "This is the third item in the list",
+			"4": "This is the fourth item in the list",
+			"5": "This is the fifth item in the list",
+			"6": "This is the sixth item in the list",
+			"7": "This is the seventh item in the list"
+		},
+		"dt": {
+			"1": "This is the first term in the list",
+			"2": "This is the second term in the list",
+			"3": "This is the third term in the list",
+			"4": "This is the fourth term in the list"
+		},
+		"dd": {
+			"1": "This is the first definition in the list",
+			"2": "This is the second definition in the list",
+			"3": "This is the third definition in the list",
+			"4": "This is the fourth definition in the list"
+		}
+	}
+}

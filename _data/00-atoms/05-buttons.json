@@ -1,0 +1,20 @@
+{
+	"buttons": {
+		"a": {
+			"href": "#",
+			"contents": "Button link"
+		},
+		"cta": {
+			"href": "#",
+			"contents": "Call to action"
+		},
+		"button": {
+			"type": "submit",
+			"contents": "Button"
+		},
+		"disabled": {
+			"type": "button",
+			"contents": "Disabled"
+		}
+	}
+}

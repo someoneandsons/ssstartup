@@ -1,0 +1,16 @@
+{
+	"images": {
+		"img": {
+			"src": "http://lorempixel.com/640/480/",
+			"alt": "This is an image"
+		},
+		"icons": {
+			"facebook": "%s Facebook",
+			"twitter": "%s Twitter",
+			"github": "%s Github",
+			"youtube": "%s YouTube",
+			"vimeo": "%s Vimeo",
+			"loading": "%s Loading icon"
+		}
+	}
+}

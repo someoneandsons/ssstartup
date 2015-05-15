@@ -1,0 +1,177 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
+
+html { line-height: 1; }
+
+ol, ul { list-style: none; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+
+q, blockquote { quotes: none; }
+q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
+
+a img { border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block; }
+
+/*
+**	Colors
+*/
+.c-primary { color: navy; }
+
+.c-secondary { color: brown; }
+
+.c-tertiary, a { color: fuchsia; }
+
+.c-quarternary { color: silver; }
+
+.c-text { color: gray; }
+
+.c-black { color: black; }
+
+.c-white { color: white; }
+
+.bg-primary { background: navy; }
+
+.bg-secondary { background: brown; }
+
+.bg-tertiary, mark { background: fuchsia; }
+
+.bg-quarternary, code, samp { background: silver; }
+
+.bg-text, hr { background: gray; }
+
+.bg-black { background: black; }
+
+.bg-white { background: white; }
+
+/*
+**	Fonts
+*/
+.f-primary, body { font-family: sans-serif; }
+
+.f-secondary { font-family: serif; }
+
+.f-monospace, kbd, code, samp, var { font-family: monospace; }
+
+/*
+**	Animations
+*/
+.a-primary { -moz-transition-property: all; -o-transition-property: all; -webkit-transition-property: all; transition-property: all; -moz-transition-duration: 0.5s; -o-transition-duration: 0.5s; -webkit-transition-duration: 0.5s; transition-duration: 0.5s; -moz-transform-origin: center center; -ms-transform-origin: center center; -webkit-transform-origin: center center; transform-origin: center center; }
+.a-primary:hover { -moz-transform: scale(1.05); -ms-transform: scale(1.05); -webkit-transform: scale(1.05); transform: scale(1.05); }
+
+.a-secondary { -moz-transition-property: all; -o-transition-property: all; -webkit-transition-property: all; transition-property: all; -moz-transition-duration: 0.5s; -o-transition-duration: 0.5s; -webkit-transition-duration: 0.5s; transition-duration: 0.5s; -moz-transform-origin: center center; -ms-transform-origin: center center; -webkit-transform-origin: center center; transform-origin: center center; }
+.a-secondary:hover { -moz-transform: rotate(2.5deg); -ms-transform: rotate(2.5deg); -webkit-transform: rotate(2.5deg); transform: rotate(2.5deg); }
+
+/*
+**	Headings
+*/
+h1, .h1 { font-size: 60px; font-size: 6rem; line-height: 1.2; }
+
+h2, .h2 { font-size: 45px; font-size: 4.5rem; line-height: 1.2; }
+
+h3, .h3 { font-size: 33px; font-size: 3.3rem; line-height: 1.2; }
+
+h4, .h4 { font-size: 24px; font-size: 2.4rem; line-height: 1.2; }
+
+h5, .h5 { font-size: 18px; font-size: 1.8rem; line-height: 1.2; }
+
+h6, .h6 { font-size: 12px; font-size: 1.2rem; line-height: 1.2; }
+
+/*
+**	Paragraph
+*/
+p, pre, time, address, details summary, input[type="text"], input[type="password"], input[type="tel"], input[type="url"], input[type="email"], input[type="search"], textarea, select { font-size: 15px; font-size: 1.5rem; line-height: 1.5; }
+
+/*
+**	Blockquote
+*/
+/*
+**	Inline elements
+*/
+em, i { font-style: italic; }
+
+strong, b, dl dt { font-weight: bold; }
+
+u, ins { text-decoration: underline; }
+
+s, del { text-decoration: line-through; }
+
+sup { vertical-align: super; }
+
+sub { vertical-align: sub; }
+
+small, sup, sub { font-size: 12px; font-size: 1.2rem; line-height: 1.2; }
+
+/*
+**	Preformatted text
+*/
+/*
+**	Time
+*/
+/*
+**	Address
+*/
+/*
+**	Details
+*/
+/*
+**	Progress
+*/
+progress { height: 2em; width: 10em; }
+
+/*
+**	Dividers
+*/
+hr { height: 2px; border: 0; }
+
+/*
+**	Unordered list
+*/
+ul { padding-left: 3em; list-style: disc; }
+
+/*
+**	Ordered list
+*/
+ol { padding-left: 3em; list-style: decimal; }
+
+/*
+**	List items
+*/
+li, dl dt, dl dd { font-size: 15px; font-size: 1.5rem; line-height: 1.2; }
+
+/*
+**	Definition list
+*/
+dl { padding-left: 1em; }
+dl dt { font-size: 15px; font-size: 1.5rem; line-height: 1.2; }
+
+/*
+**	Images
+*/
+img { max-width: 100%; height: auto; }
+
+/*
+**	Icons
+*/
+[data-icon]:before { content: "ICON"; }
+
+/*
+**	Text fields
+*/
+input[type="text"], input[type="password"], input[type="tel"], input[type="url"], input[type="email"], input[type="search"], textarea { margin: 0; padding-left: 0.5em; padding-right: 0.5em; border: none; outline: none; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+
+input[type="search"] { -webkit-appearance: none; }
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-results-button, input[type="search"]::-webkit-search-results-decoration { -webkit-appearance: none; }
+
+textarea { resize: vertical; }
+
+/*
+**	Select
+*/
+select { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+
+/*
+**	Dividers
+*/

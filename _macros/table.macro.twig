@@ -1,0 +1,47 @@
+{% import 'global.macro' as global %}
+
+{# Table #}
+
+{% macro table(contents, attributes) %}
+	{{ global.tag('table', contents, attributes) }}
+{% endmacro %}
+
+{# Table caption #}
+
+{% macro caption(contents, attributes) %}
+	{{ global.tag('caption', contents, attributes) }}
+{% endmacro %}
+
+{# Table head #}
+
+{% macro thead(contents, attributes) %}
+	{{ global.tag('thead', contents, attributes) }}
+{% endmacro %}
+
+{# Table foot #}
+
+{% macro tfoot(contents, attributes) %}
+	{{ global.tag('tfoot', contents, attributes) }}
+{% endmacro %}
+
+{# Table body #}
+
+{% macro tbody(contents, attributes) %}
+	{{ global.tag('tbody', contents, attributes) }}
+{% endmacro %}
+
+{# Table row #}
+
+{% macro tr(contents, attributes) %}
+	{{ global.tag('tr', contents, attributes) }}
+{% endmacro %}
+
+{# Table cell #}
+
+{% macro th(contents, attributes) %}
+	{{ global.tag('th', contents, attributes) }}
+{% endmacro %}
+
+{% macro td(contents, attributes) %}
+	{{ global.tag('td', contents, attributes) }}
+{% endmacro %}

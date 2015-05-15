@@ -1,0 +1,383 @@
+/*
+**	Colors
+*/
+
+.c-primary, %c-primary {
+	color: map-get($colors, 'primary');
+}
+
+.c-secondary, %c-secondary {
+	color: map-get($colors, 'secondary');
+}
+
+.c-tertiary, %c-tertiary {
+	color: map-get($colors, 'tertiary');
+}
+
+.c-quarternary, %c-quarternary {
+	color: map-get($colors, 'quarternary');
+}
+
+.c-text, %c-text {
+	color: map-get($colors, 'text');
+}
+
+.c-black, %c-black {
+	color: map-get($colors, 'black');
+}
+
+.c-white, %c-white {
+	color: map-get($colors, 'white');
+}
+
+.bg-primary, %bg-primary {
+	background: map-get($colors, 'primary');
+}
+
+.bg-secondary, %bg-secondary {
+	background: map-get($colors, 'secondary');
+}
+
+.bg-tertiary, %bg-tertiary {
+	background: map-get($colors, 'tertiary');
+}
+
+.bg-quarternary, %bg-quarternary {
+	background: map-get($colors, 'quarternary');
+}
+
+.bg-text, %bg-text {
+	background: map-get($colors, 'text');
+}
+
+.bg-black, %bg-black {
+	background: map-get($colors, 'black');
+}
+
+.bg-white, %bg-white {
+	background: map-get($colors, 'white');
+}
+
+/*
+**	Fonts
+*/
+
+.f-primary, %f-primary {
+	font-family: sans-serif;
+}
+
+.f-secondary, %f-secondary {
+	font-family: serif;
+}
+
+.f-monospace, %f-monospace {
+	font-family: monospace;
+}
+
+/*
+**	Animations
+*/
+
+.a-primary, %a-primary {
+	@include transition-property(all);
+	@include transition-duration(0.5s);
+	@include transform-origin(center, center);
+	
+	&:hover {
+		@include transform(scale(1.05));
+	}
+}
+
+.a-secondary, %a-secondary {
+	@include transition-property(all);
+	@include transition-duration(0.5s);
+	@include transform-origin(center, center);
+	
+	&:hover {
+		@include transform(rotate(2.5deg));
+	}
+}
+
+/*
+**	Headings
+*/
+
+h1, .h1, %h1 {
+	@include font(60px, 1.2);
+}
+
+h2, .h2, %h2 {
+	@include font(45px, 1.2);
+}
+
+h3, .h3, %h3 {
+	@include font(33px, 1.2);
+}
+
+h4, .h4, %h4 {
+	@include font(24px, 1.2);
+}
+
+h5, .h5, %h5 {
+	@include font(18px, 1.2);
+}
+
+h6, .h6, %h6 {
+	@include font(12px, 1.2);
+}
+
+/*
+**	Paragraph
+*/
+
+p, %p {
+	@include font(15px, 1.5);
+}
+
+/*
+**	Blockquote
+*/
+
+blockquote {
+	
+}
+
+/*
+**	Inline elements
+*/
+
+a {
+	@extend %c-tertiary;
+}
+
+em, %em {
+	font-style: italic;
+}
+
+strong, %strong {
+	font-weight: bold;
+}
+
+b {
+	@extend %strong;
+}
+
+i {
+	@extend %em;
+}
+
+u, %u {
+	text-decoration: underline;
+}
+
+del {
+	@extend %s;
+}
+
+ins {
+	@extend %u;
+}
+
+s, %s {
+	text-decoration: line-through;
+}
+
+sup, %sup {
+	vertical-align: super;
+	@extend %small;
+}
+
+sub, %sub {
+	vertical-align: sub;
+	@extend %small;
+}
+
+small, %small {
+	@include font(12px, 1.2);
+}
+
+abbr {
+	
+}
+
+kbd {
+	@extend %f-monospace;
+}
+
+q {
+	
+}
+
+dfn {
+	
+}
+
+mark {
+	@extend %bg-tertiary;
+}
+
+code, %code {
+	@extend %bg-quarternary, %f-monospace;
+}
+
+samp {
+	@extend %code;
+}
+
+var {
+	@extend %f-monospace;
+}
+
+/*
+**	Preformatted text
+*/
+
+pre {
+	@extend %p;
+}
+
+/*
+**	Time
+*/
+
+time {
+	@extend %p;
+}
+
+/*
+**	Address
+*/
+
+address {
+	@extend %p;
+}
+
+/*
+**	Details
+*/
+
+details {
+	summary {
+		@extend %p;
+	}
+}
+
+/*
+**	Progress
+*/
+
+progress {
+	height: 2em;
+	width: 10em;
+}
+
+/*
+**	Dividers
+*/
+
+hr {
+	@extend %bg-text;
+	height: 2px;
+	border: 0;
+}
+
+/*
+**	Unordered list
+*/
+
+ul {
+	padding-left: 3em;
+	list-style: disc;
+}
+
+/*
+**	Ordered list
+*/
+
+ol {
+	padding-left: 3em;
+	list-style: decimal;
+}
+
+/*
+**	List items
+*/
+
+li, %li {
+	@include font(15px, 1.2);
+}
+
+/*
+**	Definition list
+*/
+
+dl {
+	padding-left: 1em;
+	
+	dt {
+		@extend %strong, %li;
+		@include font(15px, 1.2);
+	}
+	
+	dd {
+		@extend %li;
+	}
+}
+
+/*
+**	Images
+*/
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/*
+**	Icons
+*/
+
+[data-icon] {
+	&:before {
+		content: "ICON";
+	}
+}
+
+/*
+**	Text fields
+*/
+
+input[type="text"], input[type="password"], input[type="tel"], input[type="url"], input[type="email"], input[type="search"], textarea {
+	margin: 0;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	border: none;
+	outline: none;
+	@include border-radius(5px);
+	@extend %p;
+}
+
+input[type="search"] {
+	-webkit-appearance: none;
+	
+	&::-webkit-search-cancel-button, &::-webkit-search-decoration, &::-webkit-search-results-button, &::-webkit-search-results-decoration {
+		-webkit-appearance:none;
+	}
+}
+
+textarea {
+	resize: vertical;
+}
+
+/*
+**	Select
+*/
+
+select {
+	@include border-radius(5px);
+	@extend %p;
+}
+
+/*
+**	Dividers
+*/

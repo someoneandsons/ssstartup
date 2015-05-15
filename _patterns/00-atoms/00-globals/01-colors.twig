@@ -1,0 +1,5 @@
+<ul class="sg-swatches">
+{% for color in globals.colors %}
+	{{ list.li(global.span('', {class: color.background~' sg-swatch'})~global.span(color.p, {class: color.text~' sg-label'}), {style: 'background: '~color.swatch|default('white')~';'}) }}
+{% endfor %}
+</ul>

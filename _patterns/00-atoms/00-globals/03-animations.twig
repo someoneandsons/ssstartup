@@ -1,0 +1,5 @@
+<ul class="sg-swatches">
+	{% for animation in globals.animations %}
+		{{ list.li(global.span('', {class: animation.class~' sg-swatch', style: 'background: black;'})~global.span(animation.p, {class: 'sg-label'}), {style: 'background: white;'}) }}
+	{% endfor %}
+</ul>

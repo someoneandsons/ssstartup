@@ -1,0 +1,155 @@
+{% import 'global.macro' as global %}
+{% import 'form.macro' as form %}
+
+{# Label #}
+
+{% macro label(contents, for, attributes) %}
+	{% if for|default(false) is not same as(false) %}
+		{% set attributes = {for: for}|merge(attributes|default({})) %}
+	{% endif %}
+	{{ global.tag('label', contents, attributes) }}
+{% endmacro %}
+
+{# Button #}
+
+{% macro button(type, contents, attributes) %}
+	{{ global.tag('button', contents, {type: type}|merge(attributes|default({}))) }}
+{% endmacro %}
+
+{# Text input #}
+
+{% macro input(type, name, value, attributes) %}
+	{% set id = name~'-'~value|lower|replace(' ', '-')|escape('html_attr') %}
+	{{ global.tag('input', false, {id: id, type: type, name: name, value: value}|merge(attributes|default({}))) }}
+{% endmacro %}
+
+{% macro hidden(name, value, attributes) %}
+	{{ form.input('hidden', name, value, attributes) }}
+{% endmacro %}
+
+{% macro text(name, value, attributes) %}
+	{{ form.input('text', name, value, attributes) }}
+{% endmacro %}
+
+{% macro password(name, value, attributes) %}
+	{{ form.input('password', name, value, attributes) }}
+{% endmacro %}
+
+{% macro url(name, value, attributes) %}
+	{{ form.input('url', name, value, attributes) }}
+{% endmacro %}
+
+{% macro email(name, value, attributes) %}
+	{{ form.input('email', name, value, attributes) }}
+{% endmacro %}
+
+{% macro search(name, value, attributes) %}
+	{{ form.input('search', name, value, attributes) }}
+{% endmacro %}
+
+{% macro textarea(name, value, attributes) %}
+	{{ global.tag('textarea', value, {name: name}|merge(attributes|default({}))) }}
+{% endmacro %}
+
+{# Select input #}
+
+{%- macro select(name, value, options, allowEmpty, attributes) %}
+	{% set contents = '' %}
+	{% if allowEmpty %}
+		{% set contents = contents~form.option(allowEmpty, false) %}
+	{% endif %}
+	{% for o,option in options %}
+		{% set contents = contents~form.option(option, o, ((o == value)? {selected:false})) %}
+	{% endfor %}
+	{{ form.hidden(name, '', {id: name~'-hidden'}) }}
+	{{ global.tag('select', contents, {id: name, name: name}|merge(attributes|default({}))) }}
+{% endmacro -%}
+
+{% macro option(contents, value, attributes) %}
+	{% if value|default(false) is not same as(false) %}
+		{% set attributes = {value: value}|merge(attributes|default({})) %}
+	{% endif %}
+	{{ global.tag('option', contents, attributes) }}
+{% endmacro %}
+
+{# Checkboxes #}
+
+{% macro checkboxes(name, value, options) %}
+	{{ form.hidden(name, '', {id: name~'-hidden'}) }}
+	{% for o,option in options %}
+		{% set id = name~'-'~o|lower|replace(' ', '-')|escape('html_attr') %}
+		{{ form.checkbox(name, o, {id: id}|merge((o in value)? {checked:'checked'}: {})) }}
+		{{ form.label(option, id) }}
+	{% endfor %}
+{% endmacro %}
+
+{% macro checkbox(name, value, attributes) %}
+	{{ form.input('checkbox', name, value, attributes) }}
+{% endmacro %}
+
+{# Radios #}
+
+{% macro radios(name, value, options) %}
+	{{ form.hidden(name, '', {id: name~'-hidden'}) }}
+	{% for o,option in options %}
+		{% set id = name~'-'~o|lower|replace(' ', '-')|escape('html_attr') %}
+		{{ form.radio(name, o, {id: id}|merge((o == value)? {checked:'checked'}: {})) }}
+		{{ form.label(option, id) }}
+	{% endfor %}
+{% endmacro %}
+
+{% macro radio(name, value, attributes) %}
+	{{ form.input('radio', name, value, attributes) }}
+{% endmacro %}
+
+{# Special #}
+
+{% macro output(for, contents, attributes) %}
+	{{ global.tag('output', contents, {for: for}|merge(attributes|default({}))) }}
+{% endmacro %}
+
+{% macro range(name, value, options, attributes) %}
+	{{ form.hidden(name, '', {id: name~'-hidden'}) }}
+	{{ form.datalist(name~'-list', options) }}
+	{{ form.input('range', name, value, {id: name, list: name~'-list'}|merge(attributes|default({}))) }}
+	{{ form.output(name, value) }}
+{% endmacro %}
+
+{% macro datalist(id, options) %}
+	{% set contents = '' %}
+	{% if allowEmpty %}
+		{% set contents = contents~form.option(allowEmpty, false) %}
+	{% endif %}
+	{% for o,option in options %}
+		{% set contents = contents~form.option(option, o) %}
+	{% endfor %}
+	{{ global.tag('datalist', contents, {id: id}|merge(attributes|default({}))) }}
+{% endmacro %}
+
+{% macro number(name, value, attributes) %}
+	{{ form.input('number', name, value, attributes) }}
+{% endmacro %}
+
+{% macro color(name, value, attributes) %}
+	{{ form.input('color', name, value, attributes) }}
+{% endmacro %}
+
+{% macro date(name, value, attributes) %}
+	{{ form.input('date', name, value, attributes) }}
+{% endmacro %}
+
+{% macro month(name, value, attributes) %}
+	{{ form.input('month', name, value, attributes) }}
+{% endmacro %}
+
+{% macro week(name, value, attributes) %}
+	{{ form.input('week', name, value, attributes) }}
+{% endmacro %}
+
+{% macro datetime(name, value, attributes) %}
+	{{ form.input('datetime', name, value, attributes) }}
+{% endmacro %}
+
+{% macro datetime_local(name, value, attributes) %}
+	{{ form.input('datetime_local', name, value, attributes) }}
+{% endmacro %}

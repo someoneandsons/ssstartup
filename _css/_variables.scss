@@ -1,0 +1,26 @@
+$row-name: 'row';
+$col-name: 'col';
+$span-name: 'span';
+$push-name: 'push';
+$cols: (12, 5);
+$breakpoints: (
+	's-o': (min: 35.5em),
+	'm-o': (min: 48em),
+	'l-o': (min: 64em),
+	'x-o': (min: 80em),
+	'g-o': (min: 96em),
+	'g-u': (max: 96em),
+	'x-u': (max: 80em),
+	'l-u': (max: 64em),
+	'm-u': (max: 48em),
+	's-u': (max: 35.5em)
+);
+$colors: (
+	'primary': navy,
+	'secondary': brown,
+	'tertiary': fuchsia,
+	'quarternary': silver,
+	'text': gray,
+	'black': black,
+	'white': white
+);

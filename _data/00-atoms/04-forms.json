@@ -1,0 +1,96 @@
+{
+	"forms": {
+		"text": {
+			"name": "text",
+			"value": "Text field"
+		},
+		"password": {
+			"name": "password",
+			"value": "Password field"
+		},
+		"tel": {
+			"name": "tel",
+			"value": "Telephone field"
+		},
+		"url": {
+			"name": "url",
+			"value": "URL field"
+		},
+		"email": {
+			"name": "email",
+			"value": "Email field"
+		},
+		"search": {
+			"name": "search",
+			"value": "Search field"
+		},
+		"textarea": {
+			"name": "textarea",
+			"value": "Text area"
+		},
+		"select": {
+			"name": "select",
+			"contents": "— Select —",
+			"value": "2",
+			"options": {
+				"1": "One",
+				"2": "Two",
+				"3": "Three",
+				"Really stupid long value": "Really stupid long value"
+			}
+		},
+		"checkbox": {
+			"name": "checkbox",
+			"value": "2",
+			"options": {
+				"1": "One",
+				"2": "Two",
+				"3": "Three",
+				"Really stupid long value": "Really stupid long value"
+			}
+		},
+		"radio": {
+			"name": "radio",
+			"value": "2",
+			"options": {
+				"1": "One",
+				"2": "Two",
+				"3": "Three",
+				"Really stupid long value": "Really stupid long value"
+			}
+		},
+		"range": {
+			"name": "range",
+			"value": "2",
+			"options": {
+				"1": "One",
+				"2": "Two",
+				"3": "Three",
+				"Really stupid long value": "Really stupid long value"
+			}
+		},
+		"number": {
+			"name": "number",
+			"value": "2"
+		},
+		"color": {
+			"name": "color",
+			"value": "#123456"
+		},
+		"date": {
+			"name": "date"
+		},
+		"month": {
+			"name": "month"
+		},
+		"week": {
+			"name": "week"
+		},
+		"datetime": {
+			"name": "datetime"
+		},
+		"datetime_local": {
+			"name": "datetime-local"
+		}
+	}
+}
