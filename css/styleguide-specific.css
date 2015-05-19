@@ -1,7 +1,7 @@
 /** This stylesheet is for styles you want to include only when the interface is being viewed within Pattern Lab. This is helpful for displaying demo styles for grids, animations, color swatches, etc It's also helpful for overriding context-specific styles like fixed or absolutely positioned elements These styles will not be your production CSS. */
 body { background: #ddd !important; padding: 1em; }
 
-.sg-swatches { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+.sg-swatches { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; list-style: none; padding-left: 0; }
 
 .sg-swatches li { -webkit-box-flex: 1; -webkit-flex: auto; -ms-flex: auto; flex: auto; padding: 0.3em; margin: 0 0.5em 0.5em 0; min-width: 5em; border: 1px solid #ddd; border-radius: 8px; }
 

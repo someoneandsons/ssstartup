@@ -12,5 +12,5 @@
 @import '04-pages';
 
 body {
-	@extend %f-primary;
+	@extend %f-primary, %bg-white, %c-text;
 }

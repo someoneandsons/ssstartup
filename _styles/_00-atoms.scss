@@ -132,6 +132,10 @@ h6, .h6, %h6 {
 
 p, %p {
 	@include font(15px, 1.5);
+	
+	& + * {
+		margin-top: 1em;
+	}
 }
 
 /*
@@ -139,12 +143,36 @@ p, %p {
 */
 
 blockquote {
+	padding-left: 3em;
+	padding-right: 3em;
 	
+	&:before {
+		content: "“";
+		position: relative;
+		left: -0.6em;
+		float: left;
+		font-size: 5em;
+		height: 0;
+		width: 0;
+	}
+	
+	&:after {
+		content: "”";
+		position: relative;
+		right: -0.6em;
+		float: right;
+		font-size: 5em;
+		height: 0;
+	}
 }
 
 /*
 **	Inline elements
 */
+
+%inline {
+	@include font(15px, 1.5);
+}
 
 a {
 	@extend %c-tertiary;
@@ -234,6 +262,7 @@ var {
 
 pre {
 	@extend %p;
+	@extend %f-monospace;
 }
 
 /*
@@ -259,6 +288,8 @@ address {
 details {
 	summary {
 		@extend %p;
+		outline: none;
+		cursor: pointer;
 	}
 }
 
@@ -288,6 +319,7 @@ hr {
 ul {
 	padding-left: 3em;
 	list-style: disc;
+	@extend %p;
 }
 
 /*
@@ -297,15 +329,12 @@ ul {
 ol {
 	padding-left: 3em;
 	list-style: decimal;
+	@extend %p;
 }
 
 /*
 **	List items
 */
-
-li, %li {
-	@include font(15px, 1.2);
-}
 
 /*
 **	Definition list
@@ -313,14 +342,14 @@ li, %li {
 
 dl {
 	padding-left: 1em;
+	@extend %p;
 	
 	dt {
-		@extend %strong, %li;
-		@include font(15px, 1.2);
+		@extend %strong;
 	}
 	
 	dd {
-		@extend %li;
+		padding-left: 1em;
 	}
 }
 
@@ -344,28 +373,52 @@ img {
 }
 
 /*
+**	Input fields
+*/
+
+%input {
+	margin: 0;
+	padding: 0 0.5em;
+	border: none;
+	outline: none;
+	display: inline-block;
+	@include border-radius(5px);
+	@extend %inline, %bg-white;
+}
+
+/*
+** Labels
+*/
+
+label, %label {
+	display: block;
+	@extend %inline;
+	
+	%input + & {
+		display: inline-block;
+		margin-right: 0.5em;
+	}
+}
+
+/*
 **	Text fields
 */
 
-input[type="text"], input[type="password"], input[type="tel"], input[type="url"], input[type="email"], input[type="search"], textarea {
-	margin: 0;
-	padding-left: 0.5em;
-	padding-right: 0.5em;
-	border: none;
-	outline: none;
-	@include border-radius(5px);
-	@extend %p;
+input[type="text"], input[type="password"], input[type="tel"], input[type="url"], input[type="email"] {
+	@extend %input;
 }
 
 input[type="search"] {
-	-webkit-appearance: none;
+	@extend %input;
+	@include appearance(none);
 	
 	&::-webkit-search-cancel-button, &::-webkit-search-decoration, &::-webkit-search-results-button, &::-webkit-search-results-decoration {
-		-webkit-appearance:none;
+		@include appearance(none);
 	}
 }
 
 textarea {
+	@extend %input;
 	resize: vertical;
 }
 
@@ -374,10 +427,82 @@ textarea {
 */
 
 select {
-	@include border-radius(5px);
-	@extend %p;
+	@extend %input;
 }
 
 /*
-**	Dividers
+**	Checkboxes
 */
+
+input[type="radio"] {
+	@extend %input;
+}
+
+/*
+**	Radios
+*/
+
+input[type="checkbox"] {
+	@extend %input;
+}
+
+/*
+**	Special
+*/
+
+input[type="range"] {
+	@extend %input;
+}
+
+output {
+	@extend %label;
+}
+
+input[type="number"], input[type="color"], input[type="date"], input[type="month"], input[type="week"], input[type="datetime"], input[type="datetime-local"] {
+	@extend %input;
+}
+
+/*
+**	Buttons
+*/
+
+button, .button, %button {
+	margin: 0;
+	padding: 0 0.5em;
+	border: none;
+	display: inline-block;
+	text-decoration: none;
+	cursor: pointer;
+	@include border-radius(5px);
+	@extend %inline, %bg-tertiary, %c-white, %a-primary;
+	
+	&.cta {
+		padding: 0.5em 1em !important;
+	}
+	
+	&[disabled] {
+		@extend %bg-quarternary, %a-secondary;
+	}
+}
+
+/*
+**	Tables
+*/
+
+table {
+	caption, th, td {
+		@extend %inline;
+		
+		& + * {
+			padding-left: 0.5em;
+		}
+	}
+	
+	caption {
+		@extend %em;
+	}
+	
+	th {
+		@extend %strong;
+	}
+}

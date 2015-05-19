@@ -61,7 +61,6 @@
 	{% for o,option in options %}
 		{% set contents = contents~form.option(option, o, ((o == value)? {selected:false})) %}
 	{% endfor %}
-	{{ form.hidden(name, '', {id: name~'-hidden'}) }}
 	{{ global.tag('select', contents, {id: name, name: name}|merge(attributes|default({}))) }}
 {% endmacro -%}
 
@@ -151,5 +150,5 @@
 {% endmacro %}
 
 {% macro datetime_local(name, value, attributes) %}
-	{{ form.input('datetime_local', name, value, attributes) }}
+	{{ form.input('datetime-local', name, value, attributes) }}
 {% endmacro %}

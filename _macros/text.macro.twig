@@ -42,7 +42,7 @@
 
 {% macro kbd(contents, attributes) %}{{- global.tag('kbd', contents, attributes) -}}{% endmacro %}
 
-{% macro q(cite, contents, attributes) %}{{- global.tag('q', contents, {cite: cite}|merge(attributes|default({}))) -}}{% endmacro %}
+{% macro q(contents, attributes) %}{{- global.tag('q', contents, attributes) -}}{% endmacro %}
 
 {% macro cite(contents, attributes) %}{{- global.tag('cite', contents, attributes) -}}{% endmacro %}
 

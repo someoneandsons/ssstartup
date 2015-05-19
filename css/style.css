@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
 
 html { line-height: 1; }
@@ -26,25 +27,25 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 .c-quarternary { color: silver; }
 
-.c-text { color: gray; }
+.c-text, body { color: gray; }
 
 .c-black { color: black; }
 
-.c-white { color: white; }
+.c-white, button, .button { color: white; }
 
 .bg-primary { background: navy; }
 
 .bg-secondary { background: brown; }
 
-.bg-tertiary, mark { background: fuchsia; }
+.bg-tertiary, mark, button, .button { background: fuchsia; }
 
-.bg-quarternary, code, samp { background: silver; }
+.bg-quarternary, code, samp, button[disabled], .button[disabled] { background: silver; }
 
 .bg-text, hr { background: gray; }
 
 .bg-black { background: black; }
 
-.bg-white { background: white; }
+.bg-white, input[type="text"], input[type="password"], input[type="tel"], input[type="url"], input[type="email"], input[type="search"], textarea, select, input[type="radio"], input[type="checkbox"], input[type="range"], input[type="number"], input[type="color"], input[type="date"], input[type="month"], input[type="week"], input[type="datetime"], input[type="datetime-local"], body { background: white; }
 
 /*
 **	Fonts
@@ -53,16 +54,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 .f-secondary { font-family: serif; }
 
-.f-monospace, kbd, code, samp, var { font-family: monospace; }
+.f-monospace, kbd, code, samp, var, pre { font-family: monospace; }
 
 /*
 **	Animations
 */
-.a-primary { -moz-transition-property: all; -o-transition-property: all; -webkit-transition-property: all; transition-property: all; -moz-transition-duration: 0.5s; -o-transition-duration: 0.5s; -webkit-transition-duration: 0.5s; transition-duration: 0.5s; -moz-transform-origin: center center; -ms-transform-origin: center center; -webkit-transform-origin: center center; transform-origin: center center; }
-.a-primary:hover { -moz-transform: scale(1.05); -ms-transform: scale(1.05); -webkit-transform: scale(1.05); transform: scale(1.05); }
+.a-primary, button, .button { -moz-transition-property: all; -o-transition-property: all; -webkit-transition-property: all; transition-property: all; -moz-transition-duration: 0.5s; -o-transition-duration: 0.5s; -webkit-transition-duration: 0.5s; transition-duration: 0.5s; -moz-transform-origin: center center; -ms-transform-origin: center center; -webkit-transform-origin: center center; transform-origin: center center; }
+.a-primary:hover, button:hover, .button:hover { -moz-transform: scale(1.05); -ms-transform: scale(1.05); -webkit-transform: scale(1.05); transform: scale(1.05); }
 
-.a-secondary { -moz-transition-property: all; -o-transition-property: all; -webkit-transition-property: all; transition-property: all; -moz-transition-duration: 0.5s; -o-transition-duration: 0.5s; -webkit-transition-duration: 0.5s; transition-duration: 0.5s; -moz-transform-origin: center center; -ms-transform-origin: center center; -webkit-transform-origin: center center; transform-origin: center center; }
-.a-secondary:hover { -moz-transform: rotate(2.5deg); -ms-transform: rotate(2.5deg); -webkit-transform: rotate(2.5deg); transform: rotate(2.5deg); }
+.a-secondary, button[disabled], .button[disabled] { -moz-transition-property: all; -o-transition-property: all; -webkit-transition-property: all; transition-property: all; -moz-transition-duration: 0.5s; -o-transition-duration: 0.5s; -webkit-transition-duration: 0.5s; transition-duration: 0.5s; -moz-transform-origin: center center; -ms-transform-origin: center center; -webkit-transform-origin: center center; transform-origin: center center; }
+.a-secondary:hover, button[disabled]:hover, .button[disabled]:hover { -moz-transform: rotate(2.5deg); -ms-transform: rotate(2.5deg); -webkit-transform: rotate(2.5deg); transform: rotate(2.5deg); }
 
 /*
 **	Headings
@@ -82,17 +83,24 @@ h6, .h6 { font-size: 12px; font-size: 1.2rem; line-height: 1.2; }
 /*
 **	Paragraph
 */
-p, pre, time, address, details summary, input[type="text"], input[type="password"], input[type="tel"], input[type="url"], input[type="email"], input[type="search"], textarea, select { font-size: 15px; font-size: 1.5rem; line-height: 1.5; }
+p, pre, time, address, details summary, ul, ol, dl { font-size: 15px; font-size: 1.5rem; line-height: 1.5; }
+p + *, pre + *, time + *, address + *, details summary + *, ul + *, ol + *, dl + * { margin-top: 1em; }
 
 /*
 **	Blockquote
 */
+blockquote { padding-left: 3em; padding-right: 3em; }
+blockquote:before { content: "“"; position: relative; left: -0.6em; float: left; font-size: 5em; height: 0; width: 0; }
+blockquote:after { content: "”"; position: relative; right: -0.6em; float: right; font-size: 5em; height: 0; }
+
 /*
 **	Inline elements
 */
-em, i { font-style: italic; }
+input[type="text"], input[type="password"], input[type="tel"], input[type="url"], input[type="email"], input[type="search"], textarea, select, input[type="radio"], input[type="checkbox"], input[type="range"], input[type="number"], input[type="color"], input[type="date"], input[type="month"], input[type="week"], input[type="datetime"], input[type="datetime-local"], label, output, button, .button, table caption, table th, table td { font-size: 15px; font-size: 1.5rem; line-height: 1.5; }
 
-strong, b, dl dt { font-weight: bold; }
+em, i, table caption { font-style: italic; }
+
+strong, b, dl dt, table th { font-weight: bold; }
 
 u, ins { text-decoration: underline; }
 
@@ -116,6 +124,8 @@ small, sup, sub { font-size: 12px; font-size: 1.2rem; line-height: 1.2; }
 /*
 **	Details
 */
+details summary { outline: none; cursor: pointer; }
+
 /*
 **	Progress
 */
@@ -139,13 +149,11 @@ ol { padding-left: 3em; list-style: decimal; }
 /*
 **	List items
 */
-li, dl dt, dl dd { font-size: 15px; font-size: 1.5rem; line-height: 1.2; }
-
 /*
 **	Definition list
 */
 dl { padding-left: 1em; }
-dl dt { font-size: 15px; font-size: 1.5rem; line-height: 1.2; }
+dl dd { padding-left: 1em; }
 
 /*
 **	Images
@@ -158,20 +166,43 @@ img { max-width: 100%; height: auto; }
 [data-icon]:before { content: "ICON"; }
 
 /*
+**	Input fields
+*/
+input[type="text"], input[type="password"], input[type="tel"], input[type="url"], input[type="email"], input[type="search"], textarea, select, input[type="radio"], input[type="checkbox"], input[type="range"], input[type="number"], input[type="color"], input[type="date"], input[type="month"], input[type="week"], input[type="datetime"], input[type="datetime-local"] { margin: 0; padding: 0 0.5em; border: none; outline: none; display: inline-block; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+
+/*
+** Labels
+*/
+label, output { display: block; }
+input[type="text"] + label, input[type="password"] + label, input[type="tel"] + label, input[type="url"] + label, input[type="email"] + label, input[type="search"] + label, textarea + label, select + label, input[type="radio"] + label, input[type="checkbox"] + label, input[type="range"] + label, input[type="number"] + label, input[type="color"] + label, input[type="date"] + label, input[type="month"] + label, input[type="week"] + label, input[type="datetime"] + label, input[type="datetime-local"] + label, input[type="text"] + output, input[type="password"] + output, input[type="tel"] + output, input[type="url"] + output, input[type="email"] + output, input[type="search"] + output, textarea + output, select + output, input[type="radio"] + output, input[type="checkbox"] + output, input[type="range"] + output, input[type="number"] + output, input[type="color"] + output, input[type="date"] + output, input[type="month"] + output, input[type="week"] + output, input[type="datetime"] + output, input[type="datetime-local"] + output { display: inline-block; margin-right: 0.5em; }
+
+/*
 **	Text fields
 */
-input[type="text"], input[type="password"], input[type="tel"], input[type="url"], input[type="email"], input[type="search"], textarea { margin: 0; padding-left: 0.5em; padding-right: 0.5em; border: none; outline: none; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
-
-input[type="search"] { -webkit-appearance: none; }
-input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-results-button, input[type="search"]::-webkit-search-results-decoration { -webkit-appearance: none; }
+input[type="search"] { -moz-appearance: none; -webkit-appearance: none; }
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-results-button, input[type="search"]::-webkit-search-results-decoration { -moz-appearance: none; -webkit-appearance: none; }
 
 textarea { resize: vertical; }
 
 /*
 **	Select
 */
-select { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+/*
+**	Checkboxes
+*/
+/*
+**	Radios
+*/
+/*
+**	Special
+*/
+/*
+**	Buttons
+*/
+button, .button { margin: 0; padding: 0 0.5em; border: none; display: inline-block; text-decoration: none; cursor: pointer; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+button.cta, .button.cta { padding: 0.5em 1em !important; }
 
 /*
-**	Dividers
+**	Tables
 */
+table caption + *, table th + *, table td + * { padding-left: 0.5em; }

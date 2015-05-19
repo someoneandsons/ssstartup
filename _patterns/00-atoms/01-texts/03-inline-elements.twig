@@ -55,7 +55,7 @@
 ) }}
 
 {{ text.p(
-	text.q(texts.q.cite, texts.q.contents)
+	texts.q.p|format(text.q(texts.q.contents))
 ) }}
 
 {{ text.p(
