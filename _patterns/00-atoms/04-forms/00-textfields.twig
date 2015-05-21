@@ -2,19 +2,19 @@
 	form.text(forms.text.name, forms.text.value)
 ) }}
 {{	text.p(
-	form.password(forms.password.name, forms.password.value)
+	form.password(forms.password.name, forms.password.value, (validate? fields.password))
 ) }}
 {{	text.p(
-	form.url(forms.tel.name, forms.tel.value)
+	form.tel(forms.tel.name, forms.tel.value, (validate? fields.tel))
 ) }}
 {{	text.p(
-	form.url(forms.url.name, forms.url.value)
+	form.url(forms.url.name, forms.url.value, (validate? fields.url))
 ) }}
 {{	text.p(
-	form.email(forms.email.name, forms.email.value)
+	form.email(forms.email.name, forms.email.value, (validate? fields.email))
 ) }}
 {{	text.p(
-	form.search(forms.search.name, forms.search.value)
+	form.search(forms.search.name, forms.search.value, (validate? fields.search))
 ) }}
 {{	text.p(
 	form.textarea(forms.textarea.name, forms.textarea.value)

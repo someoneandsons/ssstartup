@@ -58,6 +58,34 @@
 	background: map-get($colors, 'white');
 }
 
+.bc-primary, %bc-primary {
+	border-color: map-get($colors, 'primary');
+}
+
+.bc-secondary, %bc-secondary {
+	border-color: map-get($colors, 'secondary');
+}
+
+.bc-tertiary, %bc-tertiary {
+	border-color: map-get($colors, 'tertiary');
+}
+
+.bc-quarternary, %bc-quarternary {
+	border-color: map-get($colors, 'quarternary');
+}
+
+.bc-text, %bc-text {
+	border-color: map-get($colors, 'text');
+}
+
+.bc-black, %bc-black {
+	border-color: map-get($colors, 'black');
+}
+
+.bc-white, %bc-white {
+	border-color: map-get($colors, 'white');
+}
+
 /*
 **	Fonts
 */
@@ -225,7 +253,9 @@ small, %small {
 }
 
 abbr {
-	
+	&[title] {
+		cursor: help;
+	}
 }
 
 kbd {
@@ -382,8 +412,19 @@ img {
 	border: none;
 	outline: none;
 	display: inline-block;
+	border-style: solid;
+	border-width: 2px;
+	border-color: transparent;
 	@include border-radius(5px);
 	@extend %inline, %bg-white;
+	
+	&[data-valid="true"] {
+		@extend %bc-quarternary;
+	}
+	
+	&[data-valid="false"] {
+		@extend %bc-tertiary;
+	}
 }
 
 /*

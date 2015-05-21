@@ -35,6 +35,10 @@
 	{{ form.input('password', name, value, attributes) }}
 {% endmacro %}
 
+{% macro tel(name, value, attributes) %}
+	{{ form.input('tel', name, value, attributes) }}
+{% endmacro %}
+
 {% macro url(name, value, attributes) %}
 	{{ form.input('url', name, value, attributes) }}
 {% endmacro %}

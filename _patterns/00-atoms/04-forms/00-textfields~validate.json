@@ -1,0 +1,26 @@
+{
+    "validate": true,
+    "fields": {
+		"password": {
+			"placeholder": "Min length: 8, Max length: 24",
+			"data-validate": "minlength:8,maxlength:24"
+	    },
+	    "tel": {
+			"placeholder": "Must be telephone",
+			"data-validate": "tel"
+	    },
+	    "url": {
+			"placeholder": "Required, Must be URL",
+			"required": "",
+			"data-validate": "url"
+	    },
+	    "email": {
+			"placeholder": "Must be email",
+			"data-validate": "email"
+	    },
+	    "search": {
+			"placeholder": "Required",
+			"required": ""
+	    }
+    }
+}

@@ -13,6 +13,17 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 0
 		},
+	"\/_behaviours\/_validate.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/_behaviours\/_validate.js",
+		"outputAbbreviatedPath": "\/js\/_validate.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
 	"\/_behaviours\/behaviour.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -384,6 +395,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/_patterns\/00-atoms\/04-forms\/00-textfields~validate.json": {
+		"fileType": 524288,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/_patterns\/00-atoms\/04-forms\/00-textfields~validate.json",
+		"orderOutput": 0,
+		"outputAbbreviatedPath": "\/_patterns\/00-atoms\/04-forms\/00-textfields~validate-min.json",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1
+		},
 	"\/_patterns\/00-atoms\/04-forms\/01-select-field.twig": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -738,6 +760,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/css\/style.css": {
+		"fileType": 16,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/style.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/css\/styleguide-specific.css": {
 		"fileType": 16,
 		"ignore": 1,
@@ -795,6 +826,14 @@
 	],
 "lastSavedByUser": "Mike Pierce",
 "manualImportLinks": {
+	"\/_behaviours\/behaviour.js": [
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/_behaviours\/_validate.js",
+			"position": 0,
+			"type": 0
+			}
+		]
 	},
 "projectAttributes": {
 	"bowerAbbreviatedPath": "",

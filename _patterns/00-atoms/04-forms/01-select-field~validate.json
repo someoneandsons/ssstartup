@@ -1,0 +1,8 @@
+{
+    "validate": true,
+    "fields": {
+		"select": {
+			"required": ""
+	    }
+    }
+}
