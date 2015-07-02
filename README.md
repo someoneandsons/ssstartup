@@ -13,6 +13,9 @@ It provides:
 * A base of common behaviours and logical structure for Javascript built on [jQuery](http://jquery.com)
 * ... and more to come.
 
+[Mockaroo](https://www.mockaroo.com) can be used for creating data sets that act as placeholders for real content.
+
 ### Get started
+
 
 Haven't quite figured that out yet. Let me get back to you...
