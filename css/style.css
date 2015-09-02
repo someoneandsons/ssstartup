@@ -80,6 +80,34 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .a-secondary:hover, button[disabled]:hover, .button[disabled]:hover { -moz-transform: rotate(2.5deg); -ms-transform: rotate(2.5deg); -webkit-transform: rotate(2.5deg); transform: rotate(2.5deg); }
 
 /*
+**	Alignments
+*/
+.ta-left { text-align: left; }
+
+.ta-right { text-align: right; }
+
+.ta-center { text-align: center; }
+
+.va-top { vertical-align: top; }
+
+.va-middle { vertical-align: middle; }
+
+.va-bottom { vertical-align: bottom; }
+
+.va-element { position: relative; top: 50%; -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); -webkit-transform: translateY(-50%); transform: translateY(-50%); }
+
+/*
+**	Z-index
+*/
+.z-top { z-index: 15; }
+
+.z-above { z-index: 10; }
+
+.z-below { z-index: -1; }
+
+.z-reset { z-index: 1; }
+
+/*
 **	Headings
 */
 h1, .h1 { font-size: 60px; font-size: 6rem; line-height: 1.2; }
@@ -203,6 +231,8 @@ textarea { resize: vertical; }
 /*
 **	Select
 */
+select { -moz-appearance: none; -webkit-appearance: none; }
+
 /*
 **	Checkboxes
 */
@@ -222,3 +252,25 @@ button.cta, .button.cta { padding: 0.5em 1em !important; }
 **	Tables
 */
 table caption + *, table th + *, table td + * { padding-left: 0.5em; }
+
+/*
+**	Display
+*/
+.d-block { display: block; }
+
+.d-inline { display: block; }
+
+.d-inline-block { display: inline-block; }
+
+.d-none { display: none; }
+
+/*
+**	Position
+*/
+.p-absolute { position: absolute; }
+
+.p-relative { position: relative; }
+
+.p-fixed { position: fixed; }
+
+.p-static { position: static; }

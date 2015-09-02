@@ -127,6 +127,65 @@
 }
 
 /*
+**	Alignments
+*/
+
+//	Text align
+.ta-left, %ta-left {
+	text-align: left;
+}
+
+.ta-right, %ta-right {
+	text-align: right;
+}
+
+.ta-center, %ta-center {
+	text-align: center;
+}
+
+//	Vertical align
+
+.va-top, %va-top {
+	vertical-align: top;
+}
+
+.va-middle, %va-middle {
+	vertical-align: middle;
+}
+
+.va-bottom, %va-bottom {
+	vertical-align: bottom;
+}
+
+// Vertical align element
+
+.va-element, %va-element {
+	position: relative;
+	top: 50%;
+	@include translateY(-50%);
+}
+
+/*
+**	Z-index
+*/
+
+.z-top, %z-top {
+	z-index: 15;
+}
+
+.z-above, %z-above {
+	z-index: 10;
+}
+
+.z-below, %z-below {
+	z-index: -1;
+}
+
+.z-reset, %z-reset {
+	z-index: 1;
+}
+
+/*
 **	Headings
 */
 
@@ -469,6 +528,7 @@ textarea {
 
 select {
 	@extend %input;
+	@include appearance(none);
 }
 
 /*
@@ -546,4 +606,44 @@ table {
 	th {
 		@extend %strong;
 	}
+}
+
+/*
+**	Display
+*/
+
+.d-block, %d-block {
+	display: block;
+}
+
+.d-inline, %d-inline {
+	display: block;
+}
+
+.d-inline-block, %d-inline-block {
+	display: inline-block;
+}
+
+.d-none, %d-none {
+	display: none;
+}
+
+/*
+**	Position
+*/
+
+.p-absolute, %p-absolute {
+	position: absolute;
+}
+
+.p-relative, %p-relative {
+	position: relative;
+}
+
+.p-fixed, %p-fixed {
+	position: fixed;
+}
+
+.p-static, %p-static {
+	position: static;
 }
