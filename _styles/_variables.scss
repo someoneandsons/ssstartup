@@ -1,3 +1,5 @@
+$v: 8;
+$max-width: 1200px;
 $row-name: 'row';
 $col-name: 'col';
 $span-name: 'span';
@@ -15,6 +17,15 @@ $breakpoints: (
 	'm-u': (max: 48em),
 	's-u': (max: 35.5em)
 );
+$boxes: (
+	'huge': (size: v(14px), breakpoints: (x-u: v(9px), m-u: v(7px))),
+	'big': (size: v(10px), breakpoints: (x-u: v(6px), m-u: v(5px))),
+	'large': (size: v(7px), breakpoints: (x-u: v(4px), m-u: v(3px))),	
+	'medium': (size: v(4px), breakpoints: (x-u: v(2px))),
+	'small': (size: v(2px), breakpoints: (x-u: v(1px))),
+	'tiny': (size: v(1px)),
+	'none': (size: 0)
+);
 $colors: (
 	'primary': navy,
 	'secondary': brown,
@@ -23,4 +34,11 @@ $colors: (
 	'text': gray,
 	'black': black,
 	'white': white
+);
+$icons: (
+	'mask': #0F0F0F,
+	'names': (
+		arrow-up: ('primary', 'secondary', 'tertiary'),
+		arrow-down: ('primary', 'secondary')
+	)
 );

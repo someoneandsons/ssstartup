@@ -1,6 +1,14 @@
+/*
+**	Parse INT function
+*/
+
 @function parseInt($n) {
 	@return $n / ($n * 0 + 1);
 }
+
+/*
+**	String replace function
+*/
 
 @function str-replace($string, $search, $replace: '') {
 	$index: str-index($string, $search);
@@ -12,13 +20,21 @@
 	@return $string;
 }
 
+/*
+**	SVG fill replace function
+*/
+
 @function svg-fill-replace($path, $search, $replace) {
 	$svg: inline-svg-image($path);
 	
-	$svg-replaced: str-replace($svg, str-replace(#{$search}, '#'), str-replace(#{$replace}, '#'));
+	$svg-replaced: str-replace($svg, str-replace(unquote("#{$search}"), '#'), str-replace(unquote("#{$replace}"), '#'));
 	
 	@return $svg-replaced;
 }
+
+/*
+**	Mixin to rem-ify properties with pixel fallbacks
+*/
 
 @mixin rem($property, $values) {
 	$px : ();
@@ -55,6 +71,10 @@
 	}
 }
 
+/*
+**	Mixin for fonts
+*/
+
 @mixin font($size: 15px, $height: 1.2) {
 	@include rem(font-size, $size);
 	
@@ -65,6 +85,10 @@
 	}
 }
 
+/*
+**	Mixin for breakpoints
+*/
+
 @mixin breakpoint($breakpoint) {
 	$keys: map-keys($breakpoint);
 	$key: nth($keys, 1);
@@ -73,6 +97,10 @@
 	    @content;
 	}
 }
+
+/*
+**	Mixin for keyframes
+*/
 
 @mixin keyframes($name) {
 	@-webkit-keyframes #{$name} {
@@ -86,8 +114,12 @@
 	}
 	@keyframes #{$name} {
 		@content;
-	} 
+	}
 }
+
+/*
+**	Mixin for animations
+*/
 
 @mixin animation($styles...) {
 	-webkit-animation: $styles;
@@ -95,6 +127,10 @@
 	-o-animation: $styles;
 	animation: $styles;
 }
+
+/*
+**	Mixin for input placeholders
+*/
 
 @mixin placeholder {
 	&::-webkit-input-placeholder {
@@ -111,16 +147,171 @@
 	}
 }
 
+/*
+**	Mixin for non-print stylesheets
+*/
+
 @mixin noprint {
 	@media only print {
 		& { display: none; }
 	}
 }
 
+/*
+**	Mixin for print stylesheets
+*/
+
 @mixin print {
 	@media only print {
 		& {
 			@content;
+		}
+	}
+}
+
+/*
+**	Columns for grid
+*/
+
+@mixin cols($col-name, $span-name, $push-name, $cols) {
+	.#{$col-name} {
+		&.#{$span-name}-first {
+			@include order(0);
+		}
+		
+		&.#{$span-name}-second {
+			@include order(1);
+		}
+		
+		&.#{$span-name}-third {
+			@include order(2);
+		}
+		
+		@each $col in $cols {
+			@for $i from 1 through $col {
+				&.#{$span-name}-#{$i}-#{$col} {
+					width: ($i / $col) * 100%;
+					//*width: ($i / $col) * 100% - 0.031%;
+				}
+				
+				&.#{$push-name}-#{$i - 1}-#{$col} {
+					margin-left: (($i - 1) / $col) * 100%;
+					//*margin-left: (($i - 1) / $col) * 100% - 0.031%;
+				}
+			}
+		}
+	}
+}
+
+/*
+**	Grids with rows and columns
+*/
+
+@mixin grid($row-name, $col-name, $span-name, $push-name, $cols, $breakpoints) {
+	.#{$row-name}, .#{$row-name}.#{$col-name} {
+	    letter-spacing: -0.31em;
+	    *letter-spacing: normal;
+	    *word-spacing: -0.43em;
+	    text-rendering: optimizespeed;
+	    @include display-flex(flex);
+	    @include flex-flow(row wrap);
+	    @include align-content(flex-start);
+	}
+	
+	.#{$col-name} {
+	    display: inline-block;
+	    *display: inline;
+	    zoom: 1;
+	    letter-spacing: normal;
+	    word-spacing: normal;
+	    vertical-align: top;
+	    text-rendering: auto;
+	    margin: 0;
+	    width: 100%;
+	    
+	    &.#{$span-name}-first {
+			@include order(0);
+		}
+		
+		&.#{$span-name}-second {
+			@include order(1);
+		}
+		
+		&.#{$span-name}-third {
+			@include order(2);
+		}
+	}
+	
+	@include cols($col-name, $span-name, $push-name, $cols);
+	
+	@each $name, $breakpoint in $breakpoints {
+		@include breakpoint($breakpoint) {
+			@include cols($col-name, #{$span-name}-#{$name}, #{$push-name}-#{$name}, $cols);
+		}
+	}
+}
+
+/*
+**	Make a box
+*/
+
+@mixin box($prefix, $name, $property, $size) {
+	.#{$prefix}-#{$name}, %#{$prefix}-#{$name} {
+		@include rem(#{$property}, $size);
+	}
+	
+	.#{$prefix}-#{$name}-edges, %#{$prefix}-#{$name}-edges {
+		@include rem(#{$property}-top, $size);
+		@include rem(#{$property}-bottom, $size);
+	}
+	
+	.#{$prefix}-#{$name}-sides, %#{$prefix}-#{$name}-sides {
+		@include rem(#{$property}-left, $size);
+		@include rem(#{$property}-right, $size);
+	}
+	
+	.#{$prefix}-#{$name}-top, %#{$prefix}-#{$name}-top {
+		@include rem(#{$property}-top, $size);
+	}
+	
+	.#{$prefix}-#{$name}-left, %#{$prefix}-#{$name}-left {
+		@include rem(#{$property}-left, $size);
+	}
+	
+	.#{$prefix}-#{$name}-bottom, %#{$prefix}-#{$name}-bottom {
+		@include rem(#{$property}-bottom, $size);
+	}
+	
+	.#{$prefix}-#{$name}-right, %#{$prefix}-#{$name}-right {
+		@include rem(#{$property}-right, $size);
+	}
+}
+
+/*
+**	Make a set of boxes
+*/
+
+@mixin boxes($padding-prefix, $margin-prefix, $boxes, $breakpoints) {
+	@each $name, $attributes in $boxes {
+		@include box('#{$padding-prefix}', $name, 'padding', map-get($attributes, 'size'));
+		@include box('#{$margin-prefix}', $name, 'margin', map-get($attributes, 'size'));
+		
+		@each $breakpoint, $size in map-get($attributes, 'breakpoints') {
+			@if $breakpoint != null {
+				@include breakpoint(map-get($breakpoints, $breakpoint)) {
+					@include box('#{$padding-prefix}', $name, 'padding', $size);
+					@include box('#{$margin-prefix}', $name, 'margin', $size);
+				}
+			}
+		}
+	}
+	
+	@each $bpName, $breakpoint in $breakpoints {
+		@include breakpoint($breakpoint) {
+			@each $name, $attributes in $boxes {
+				@include box('#{$padding-prefix}-#{$bpName}', $name, 'padding', map-get($attributes, 'size') !important);
+				@include box('#{$margin-prefix}-#{$bpName}', $name, 'margin', map-get($attributes, 'size') !important);
+			}
 		}
 	}
 }

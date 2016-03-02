@@ -2,88 +2,21 @@
 **	Colors
 */
 
-.c-primary, %c-primary {
-	color: map-get($colors, 'primary');
-}
-
-.c-secondary, %c-secondary {
-	color: map-get($colors, 'secondary');
-}
-
-.c-tertiary, %c-tertiary {
-	color: map-get($colors, 'tertiary');
-}
-
-.c-quarternary, %c-quarternary {
-	color: map-get($colors, 'quarternary');
-}
-
-.c-text, %c-text {
-	color: map-get($colors, 'text');
-}
-
-.c-black, %c-black {
-	color: map-get($colors, 'black');
-}
-
-.c-white, %c-white {
-	color: map-get($colors, 'white');
-}
-
-.bg-primary, %bg-primary {
-	background: map-get($colors, 'primary');
-}
-
-.bg-secondary, %bg-secondary {
-	background: map-get($colors, 'secondary');
-}
-
-.bg-tertiary, %bg-tertiary {
-	background: map-get($colors, 'tertiary');
-}
-
-.bg-quarternary, %bg-quarternary {
-	background: map-get($colors, 'quarternary');
-}
-
-.bg-text, %bg-text {
-	background: map-get($colors, 'text');
-}
-
-.bg-black, %bg-black {
-	background: map-get($colors, 'black');
-}
-
-.bg-white, %bg-white {
-	background: map-get($colors, 'white');
-}
-
-.bc-primary, %bc-primary {
-	border-color: map-get($colors, 'primary');
-}
-
-.bc-secondary, %bc-secondary {
-	border-color: map-get($colors, 'secondary');
-}
-
-.bc-tertiary, %bc-tertiary {
-	border-color: map-get($colors, 'tertiary');
-}
-
-.bc-quarternary, %bc-quarternary {
-	border-color: map-get($colors, 'quarternary');
-}
-
-.bc-text, %bc-text {
-	border-color: map-get($colors, 'text');
-}
-
-.bc-black, %bc-black {
-	border-color: map-get($colors, 'black');
-}
-
-.bc-white, %bc-white {
-	border-color: map-get($colors, 'white');
+@each $label, $color in $colors {
+	// Color
+	.c-#{$label}, %c-#{$label} {
+		color: $color;
+	}
+	
+	//Background color
+	.bg-#{$label}, %bg-#{$label} {
+		background: $color;
+	}
+	
+	//Border color
+	.bc-#{$label}, %bc-#{$label} {
+		border-color: $color;
+	}
 }
 
 /*
@@ -107,23 +40,154 @@
 */
 
 .a-primary, %a-primary {
-	@include transition-property(all);
+	@include transition-property(background-color);
 	@include transition-duration(0.5s);
-	@include transform-origin(center, center);
-	
-	&:hover {
-		@include transform(scale(1.05));
-	}
 }
 
-.a-secondary, %a-secondary {
-	@include transition-property(all);
-	@include transition-duration(0.5s);
-	@include transform-origin(center, center);
-	
-	&:hover {
-		@include transform(rotate(2.5deg));
-	}
+/*
+**	Hide except from screen readers
+*/
+
+.sr-only, %sr-only {
+	position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+/*
+**	Display
+*/
+
+%d-block {
+	display: block;
+}
+
+%d-inline {
+	display: inline;
+}
+
+%d-inline-block {
+	display: inline-block;
+}
+
+%d-none {
+	display: none;
+}
+
+.d-block {
+	display: block !important;
+}
+
+.d-inline {
+	display: block !important;
+}
+
+.d-inline-block {
+	display: inline-block !important;
+}
+
+.d-none {
+	display: none !important;
+}
+
+/*
+**	Overflow
+*/
+
+.o-hidden, %o-hidden {
+	overflow: hidden;
+}
+
+.o-auto, %o-auto {
+	overflow: auto;
+}
+
+.o-visible, %o-visible {
+	overflow: visible;
+}
+
+.o-scroll, %o-scroll {
+	overflow: scroll;
+}
+
+/*
+**	Position
+*/
+
+.p-absolute, %p-absolute {
+	position: absolute;
+}
+
+.p-relative, %p-relative {
+	position: relative;
+}
+
+.p-fixed, %p-fixed {
+	position: fixed;
+}
+
+.p-static, %p-static {
+	position: static;
+}
+
+/*
+**	Float
+*/
+
+.fl-left, %fl-left {
+	float: left;
+}
+
+.fl-right, %fl-right {
+	float: right;
+}
+
+.fl-none, %fl-none {
+	float: none;
+}
+
+/*
+**	Text transforms and decorations
+*/
+
+
+// Transforms
+.tt-uppercase, %tt-uppercase {
+	text-transform: uppercase;
+}
+
+.tt-lowercase, %tt-lowercase {
+	text-transform: lowercase;
+}
+
+.tt-capitalize, %tt-capitalize {
+	text-transform: capitalize
+}
+
+.tt-none, %tt-none {
+	text-transform: none;
+}
+
+// Decorations
+.td-underline, %td-underline {
+	text-decoration: underline;
+}
+
+.td-overline, %td-overline {
+	text-decoration: overline;
+}
+
+.td-line-through, %td-line-through {
+	text-decoration: line-through;
+}
+
+.td-none, %td-none {
+	text-decoration: none;
 }
 
 /*
@@ -606,44 +670,4 @@ table {
 	th {
 		@extend %strong;
 	}
-}
-
-/*
-**	Display
-*/
-
-.d-block, %d-block {
-	display: block;
-}
-
-.d-inline, %d-inline {
-	display: block;
-}
-
-.d-inline-block, %d-inline-block {
-	display: inline-block;
-}
-
-.d-none, %d-none {
-	display: none;
-}
-
-/*
-**	Position
-*/
-
-.p-absolute, %p-absolute {
-	position: absolute;
-}
-
-.p-relative, %p-relative {
-	position: relative;
-}
-
-.p-fixed, %p-fixed {
-	position: fixed;
-}
-
-.p-static, %p-static {
-	position: static;
 }

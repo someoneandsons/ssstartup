@@ -1,7 +1,6 @@
 @import 'compass';
-@import 'mixins';
-@import 'grid';
 @import 'variables';
+@import 'mixins';
 
 @import 'compass/reset';
 
@@ -11,6 +10,22 @@
 @import '03-templates';
 @import '04-pages';
 
+* {
+	@include box-sizing(border-box);
+}
+
+html {
+	font-size: 62.5%;
+	height: 100%;
+}
+
 body {
 	@extend %f-primary, %bg-white, %c-text;
+	@include display-flex(flex);
+	@include flex-direction(column);
+	min-height: 100vh;
+}
+
+#main {
+	@include flex(1);
 }
