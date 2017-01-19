@@ -2,7 +2,7 @@
 **	Grid
 */
 
-@include grid($row-name, $col-name, $span-name, $push-name, $cols, $breakpoints);
+@include grid($row-name, $col-name, $span-name, $push-name, $order-name, $self-name, $cols, $breakpoints);
 
 .#{$row-name} {
 	@extend %a-all;
