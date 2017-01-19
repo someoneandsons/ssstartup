@@ -190,6 +190,12 @@
 	text-decoration: none;
 }
 
+// Shadows
+
+.text-shadow, %text-shadow {
+	text-shadow: rgba(map-get($colors, 'dark'), 0.3) 2px 2px 4px;
+}
+
 /*
 **	Alignments
 */
@@ -631,22 +637,20 @@ input[type="number"], input[type="color"], input[type="date"], input[type="month
 **	Buttons
 */
 
+/*
+**	Buttons
+*/
+
 button, .button, %button {
 	margin: 0;
-	padding: 0 0.5em;
 	border: none;
 	display: inline-block;
 	text-decoration: none;
 	cursor: pointer;
-	@include border-radius(5px);
-	@extend %inline, %bg-tertiary, %c-white, %a-primary;
-	
-	&.cta {
-		padding: 0.5em 1em !important;
-	}
+	@extend %inline, %ta-center, %va-middle, %a-primary;
 	
 	&[disabled] {
-		@extend %bg-quarternary, %a-secondary;
+		@extend %c-light;
 	}
 }
 

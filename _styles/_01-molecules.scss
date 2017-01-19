@@ -20,10 +20,63 @@
 }
 
 /*
+**	Body text blocks
+*/
+
+.body {
+	header:not(.body) + &, > * + * {
+		margin-top: v(3px);
+	}
+}
+
+/*
 **	Boxes
 */
 
 @include boxes('p', 'm', $boxes, $breakpoints);
+
+/*
+**	Buttons
+*/
+
+button, .button, %button {
+	@extend %tt-uppercase, %strong;
+	@include rem(font-size, 14px);
+	
+	&[class*='bg-'], &[class*='bc-'] {
+		padding: 0 v(4px);
+		border-radius: v(4px);
+		line-height: v(8px);
+	}
+	
+	&[class*='bc-'] {
+		line-height: v(8px) - 4px;
+		border-width: 2px;
+		border-style: solid;
+		box-sizing: border-box;
+	}
+	
+	@each $label, $color in $colors {
+		@if type-of($color) == color {
+			$adjustColor: lighten($color, 5%);
+			@if (lightness($color) > 10) {
+				$adjustColor: darken($color, 5%);
+			}			
+			
+			&.c-#{$label}, &.c-#{$label}-hover {
+				&:hover {
+					color: $adjustColor;
+				}
+			}
+			
+			&.bg-#{$label}, &.bg-#{$label}-hover {
+				&:hover {
+					background-color: $adjustColor;
+				}
+			}
+		}
+	}
+}
 
 /*
 **	Icons
@@ -36,11 +89,9 @@
 	&:before {
 		@extend %d-inline-block, %va-middle, %ta-center;
 		content: "";
-		height: v(3px);
-		line-height: v(3px);
-		width: v(3px);
-		margin-right: 0.5em;
-		margin-top: -0.25em;
+		height: v(5px);
+		line-height: v(5px);
+		width: v(5px);
 		background-repeat: no-repeat;
 		background-position: center center;
 		@include background-size(contain);
@@ -55,38 +106,6 @@
 					}
 				}
 			}
-		}
-	}
-}
-
-/*
-**	Buttons
-*/
-
-button, .button, %button {
-	padding: 0 v(3px);
-	height: v(6px);
-	text-decoration: none;
-	cursor: pointer;
-	border: none;
-	@include font(18px, v(6px));
-	@include border-radius(v(0.5px));
-	@include box-shadow(map-get($colors, 'dark') 0 0 0 1px inset);
-	@extend %light, %d-inline-block, %bg-light, %c-dark, %ta-center, %a-primary, %va-middle;
-	
-	&:hover {
-		position: relative;
-		overflow: hidden;
-		@extend %bg-gray;
-		
-		&:after {
-			content: "";
-			position: absolute;
-			width: 100%;
-			height: v(1px);
-			bottom: 0;
-			left: 0;
-			@extend %bg-gray, %d-none;
 		}
 	}
 }
@@ -158,139 +177,6 @@ button, .button, %button {
 	}
 }
 
-%list-dropdown, .list-dropdown {
-	@extend %list-no-items, %p-relative;
-	@include border-radius(v(0.5px));
-	@include box-shadow(map-get($colors, 'dark') 0 0 0 1px);
-	
-	a.label {
-		@extend %d-block, %ta-left;
-		padding: 0 v(4.5px) 0 v(1.5px);
-		@include background-size(v(2px) v(2px));
-		
-		.icon {
-			@extend %ta-left;
-		}
-	}
-	
-	&:hover {
-		@include border-bottom-radius(0);
-		
-		.label {
-			@include border-bottom-radius(0);
-			border-bottom-color: transparent;
-			
-			&:hover {
-				background-image: svg-fill-replace('icons/arrow-up.svg', map-get($icons, 'mask'), map-get($colors, 'dark'));
-			}
-			
-			.icon[data-hover] {
-				color: transparent;
-				
-				&:after {
-					@extend %d-inline-block, %va-top, %c-dark, %p-absolute;
-					@include font(18px, v(6px));
-					left: v(4.64px);
-					content: attr(data-hover);
-				}
-			}
-		}
-	}
-	
-	.button {
-		@extend %d-block, %ta-left;
-		padding: 0 v(1.5px);
-		@include box-shadow(none);
-		
-		&.label:hover {
-			& + ul {
-				@extend %d-block;
-			}
-		}
-	}
-	
-	ul {
-		@extend %d-none, %p-absolute, %list-no-items, %z-above;
-		@include border-radius(0 0 v(0.5px) v(0.5px));
-		@include box-shadow(map-get($colors, 'dark') 0 0 0 1px);
-		width: 100%;
-		
-		&:before {
-			content: "";
-			@extend %p-absolute, %d-block, %bg-gray;
-			height: 1px;
-			width: 100%;
-			top: -1px;
-		}
-		
-		li {
-			.button {
-				@include border-radius(0);
-				border-top-color: transparent;
-				border-bottom-color: transparent;
-			}
-			
-			&:last-child {
-				.button {
-					@include border-bottom-radius(v(0.5px));
-					border-bottom-color: inherit;
-				}
-			}
-		}
-		
-		&:hover {
-			@extend %d-block;
-		}
-	}
-}
-
-/*
-**	Autocomplete
-*/
-
-%autocomplete, .autocomplete {
-	@extend %p-relative;
-	
-	input {
-		width: 100%;
-		
-		&:not([value=""]) {
-			& + ul {
-				@extend %d-block;
-			}
-		}
-	}
-	
-	ul {
-		@extend %p-absolute, %list-no-items, %z-above;
-		@include border-radius(0 0 v(0.5px) v(0.5px));
-		@include box-shadow(map-get($colors, 'dark') 0 0 0 1px);
-		margin-left: 0 !important;
-		width: 100%;
-		
-		li {
-			.button {
-				@extend %d-block, %ta-center;
-				@include box-shadow(none);
-				@include border-radius(0);
-				border-top-color: transparent;
-				border-bottom-color: transparent;
-			}
-			
-			&:last-child {
-				.button {
-					@include border-bottom-radius(v(0.5px));
-					border-bottom-color: inherit;
-				}
-			}
-		}
-		
-		&:hover {
-			@extend %d-block;
-		}
-	}
-}
-
 /*
 **	Intro
 */
@@ -303,31 +189,22 @@ button, .button, %button {
 }
 
 /*
-**	Intro
-*/
-
-%author, .author {
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	@extend %bc-dark;
-}
-
-/*
 **	Ratios
 */
 
 .ratio {
-	height: 0;
-	
-	&.size-1-1 {
+	&-1-1 {
+		height: 0;
 		padding-bottom: 100%;
 	}
 	
-	&.size-4-3 {
+	&-4-3 {
+		height: 0;
 		padding-bottom: 3/4*100%;
 	}
 	
-	&.size-16-9 {
+	&-16-9 {
+		height: 0;
 		padding-bottom: 9/16*100%;
 	}
 }
@@ -337,73 +214,82 @@ button, .button, %button {
 */
 
 .anchor {
-	@extend %p-absolute;
-	left: 0;
-	
-	&.top {
+	&-top {
+		@extend %p-absolute;
 		left: 0;
 		right: 0;
 		top: 0;
 	}
 	
-	&.bottom {
+	&-bottom {
+		@extend %p-absolute;
 		left: 0;
 		right: 0;
 		bottom: 0;
 	}
 	
-	&.left {
+	&-left {
+		@extend %p-absolute;
 		left: 0;
 		top: 0;
 		bottom: 0;
 	}
 	
-	&.right {
+	&-right {
+		@extend %p-absolute;
+		top: 0;
+		right: 0;
 		left: auto;
-		top: 0;
-		right: 0;
 		bottom: 0;
 	}
 	
-	&.top-right {
+	&-top-right {
+		@extend %p-absolute;
 		top: 0;
 		right: 0;
 		left: auto;
 		bottom: auto;
 	}
 	
-	&.top-left {
+	&-top-left {
+		@extend %p-absolute;
 		top: 0;
 		right: auto;
 		left: 0;
 		bottom: auto;
 	}
 	
-	&.bottom-right {
+	&-bottom-right {
+		@extend %p-absolute;
 		top: auto;
 		right: 0;
 		left: auto;
 		bottom: 0;
 	}
 	
-	&.bottom-left {
+	&-bottom-left {
+		@extend %p-absolute;
 		top: auto;
 		right: auto;
 		left: 0;
 		bottom: 0;
 	}
 	
-	&.cover {
+	&-cover {
+		@extend %p-absolute;
+		left: 0;
 		right: 0;
 		top: 0;
 		bottom: 0;
 	}
 	
-	&.height {
+	&-height {
+		@extend %p-absolute;
 		height: 100%;
 	}
 	
-	&.width {
+	&-width {
+		@extend %p-absolute;
 		width: 100%;
 	}
 }

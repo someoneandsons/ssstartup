@@ -173,30 +173,36 @@
 **	Columns for grid
 */
 
-@mixin cols($col-name, $span-name, $push-name, $cols) {
+@mixin cols($col-name, $span-name, $push-name, $order-name, $self-name, $cols) {
 	.#{$col-name} {
-		&.#{$span-name}-first {
-			@include order(0);
+		&.#{$self-name}-stretch {
+			align-self: stretch;
 		}
 		
-		&.#{$span-name}-second {
-			@include order(1);
+		&.#{$self-name}-center {
+			align-self: center;
 		}
 		
-		&.#{$span-name}-third {
-			@include order(2);
+		&.#{$self-name}-end {
+			align-self: flex-end;
+		}
+		
+		&.#{$self-name}-start {
+			align-self: flex-start;
 		}
 		
 		@each $col in $cols {
 			@for $i from 1 through $col {
+				&.#{$order-name}-#{$i} {
+					@include order($i - 1);
+				}
+				
 				&.#{$span-name}-#{$i}-#{$col} {
 					width: ($i / $col) * 100%;
-					//*width: ($i / $col) * 100% - 0.031%;
 				}
 				
 				&.#{$push-name}-#{$i - 1}-#{$col} {
 					margin-left: (($i - 1) / $col) * 100%;
-					//*margin-left: (($i - 1) / $col) * 100% - 0.031%;
 				}
 			}
 		}
@@ -207,15 +213,52 @@
 **	Grids with rows and columns
 */
 
-@mixin grid($row-name, $col-name, $span-name, $push-name, $cols, $breakpoints) {
+@mixin grid($row-name, $col-name, $span-name, $push-name, $order-name, $self-name, $cols, $breakpoints) {
 	.#{$row-name}, .#{$row-name}.#{$col-name} {
-	    letter-spacing: -0.31em;
-	    *letter-spacing: normal;
-	    *word-spacing: -0.43em;
 	    text-rendering: optimizespeed;
-	    @include display-flex(flex);
-	    @include flex-flow(row wrap);
-	    @include align-content(flex-start);
+	    display: flex;
+		flex-flow: row wrap;
+	    align-items: flex-start;
+		
+		&.align-stretch {
+			align-items: stretch;
+		}
+		
+		&.align-center {
+			align-items: center;
+		}
+		
+		&.align-baseline {
+			align-items: baseline;
+		}
+		
+		&.align-end {
+			align-items: flex-end;
+		}
+		
+		&.align-start {
+			align-items: flex-start;
+		}
+		
+		&.justify-space-around {
+			justify-content: space-around;
+		}
+		
+		&.justify-space-between {
+			justify-content: space-between;
+		}
+		
+		&.justify-center {
+			justify-content: center;
+		}
+		
+		&.justify-end {
+			justify-content: flex-end;
+		}
+		
+		&.justify-start {
+			justify-content: flex-start;
+		}
 	}
 	
 	.#{$col-name} {
@@ -228,25 +271,13 @@
 	    text-rendering: auto;
 	    margin: 0;
 	    width: 100%;
-	    
-	    &.#{$span-name}-first {
-			@include order(0);
-		}
-		
-		&.#{$span-name}-second {
-			@include order(1);
-		}
-		
-		&.#{$span-name}-third {
-			@include order(2);
-		}
 	}
 	
-	@include cols($col-name, $span-name, $push-name, $cols);
+	@include cols($col-name, $span-name, $push-name, $order-name, $self-name, $cols);
 	
 	@each $name, $breakpoint in $breakpoints {
 		@include breakpoint($breakpoint) {
-			@include cols($col-name, #{$span-name}-#{$name}, #{$push-name}-#{$name}, $cols);
+			@include cols($col-name, #{$span-name}-#{$name}, #{$push-name}-#{$name}, #{$order-name}-#{$name}, #{$self-name}-#{$name}, $cols);
 		}
 	}
 }

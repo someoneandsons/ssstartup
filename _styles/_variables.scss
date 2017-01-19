@@ -1,10 +1,16 @@
+@function v($n) {
+	@return $v * $n;
+}
+
 $v: 8;
 $max-width: 1200px;
 $row-name: 'row';
 $col-name: 'col';
 $span-name: 'span';
 $push-name: 'push';
-$cols: (12, 5);
+$order-name: 'order';
+$self-name: 'self';
+$cols: (12);
 $breakpoints: (
 	's-o': (min: 35.5em),
 	'm-o': (min: 48em),
@@ -18,13 +24,12 @@ $breakpoints: (
 	's-u': (max: 35.5em)
 );
 $boxes: (
-	'huge': (size: v(14px), breakpoints: (x-u: v(9px), m-u: v(7px))),
-	'big': (size: v(10px), breakpoints: (x-u: v(6px), m-u: v(5px))),
-	'large': (size: v(7px), breakpoints: (x-u: v(4px), m-u: v(3px))),	
-	'medium': (size: v(4px), breakpoints: (x-u: v(2px))),
-	'small': (size: v(2px), breakpoints: (x-u: v(1px))),
-	'tiny': (size: v(1px)),
-	'none': (size: 0)
+	'negative': (size: v(-10px), breakpoints: (m-u: v(-8px))),
+	'none': (size: 0),
+	'small': (size: v(2px)),
+	'medium': (size: v(4px)),
+	'large': (size: v(7px), breakpoints: (m-u: v(5px))),
+	'huge': (size: v(14px), breakpoints: (m-u: v(12px)))
 );
 $colors: (
 	'primary': navy,
