@@ -173,7 +173,7 @@ button, .button, %button {
 
 %list-spaced, .list-spaced {
 	li {
-		@extend %body-item;
+		//@extend %body-item;
 	}
 }
 
@@ -184,7 +184,7 @@ button, .button, %button {
 %intro, .intro {
 	> * {
 		@include font(20px, v(3.5px));
-		@extend %normal;
+		//@extend %normal;
 	}
 }
 

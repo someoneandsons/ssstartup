@@ -193,7 +193,7 @@
 // Shadows
 
 .text-shadow, %text-shadow {
-	text-shadow: rgba(map-get($colors, 'dark'), 0.3) 2px 2px 4px;
+	//text-shadow: rgba(map-get($colors, 'dark'), 0.3) 2px 2px 4px;
 }
 
 /*
@@ -650,7 +650,7 @@ button, .button, %button {
 	@extend %inline, %ta-center, %va-middle, %a-primary;
 	
 	&[disabled] {
-		@extend %c-light;
+		//@extend %c-light;
 	}
 }
 
